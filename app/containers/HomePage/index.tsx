@@ -13,7 +13,7 @@ import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TopBar from '../TopBar';
 import Menu from '../Menu';
-// import Orders from '../Orders';
+import Orders from '../Orders';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
@@ -21,10 +21,10 @@ export default class HomePage extends React.PureComponent {
     const menu = (
       <Menu isOpen={true}/>
     );
-    //
-    // const content = (
-    //   <Orders/>
-    // );
+
+    const content = (
+      <Orders/>
+    );
 
     return (
       <Container>
@@ -38,7 +38,7 @@ export default class HomePage extends React.PureComponent {
             {menu}
           </Col>
           <Col>
-            {/*{content}*/}
+            {content}
           </Col>
         </Row>
       </Container>
