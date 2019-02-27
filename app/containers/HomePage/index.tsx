@@ -10,38 +10,18 @@
  */
 
 import * as React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import TopBar from '../TopBar';
-// import Menu from '../Menu';
-// import Orders from '../Orders';
+import { Button } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   public render() {
-    // const menu = (
-    //   <Menu/>
-    // );
-    //
-    // const content = (
-    //   <Orders/>
-    // );
-
     return (
-      <Container>
-        <Row>
-          <Col>
-            <TopBar isOpen={false}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {/*{menu}*/}
-          </Col>
-          <Col>
-            {/*{content}*/}
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <FormattedMessage {...messages.header} />
+        <Button color="danger">Danger!</Button>
+      </div>
     );
   }
 }

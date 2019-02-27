@@ -249,7 +249,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 **3) Change the position of `<GlobalStyle>` in the rendering of `<App>`**
 
-You can do that inside `containers/App/index.ts`.
+You can do that inside `containers/App/index.js`.
 
 More information is available in the [official documentation](https://github.com/styled-components/styled-components/blob/master/docs/existing-css.md).
 

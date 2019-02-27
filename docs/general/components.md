@@ -58,13 +58,17 @@ transpiled code in a `lib/` directory.
 In your `package.json`, you probably have something like this:
 
 ```json
-  "main": indexindex.ts
+  "main": "lib/index.js"
+```
+
 This is what you want when you publish to the registry, but during development
 you probably want to change this to
 
 ```json
-  "main": index.ts
-``index.tswill make sure that your main project always includes your most recent
+  "main": "src/index.js"
+```
+
+This will make sure that your main project always includes your most recent
 code. You've just got to remember to change it back to `lib/` before publishing
 to the npm registry.
 
