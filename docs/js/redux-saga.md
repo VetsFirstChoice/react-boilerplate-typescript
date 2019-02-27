@@ -46,7 +46,7 @@ export default function* rootSaga() {
 }
 ```
 
-Then, in your `index.ts`, use a decorator to inject the root saga:
+Then, in your `index.tsx`, use a decorator to inject the root saga:
 
 ```JS
 import injectSaga from 'utils/injectSaga';

@@ -72,7 +72,7 @@ module.exports = {
     },
   ],
   actions: data => {
-    // Generate index.ts and index.test.js
+    // Generate index.tsx and index.test.js
     var componentTemplate; // eslint-disable-line no-var
 
     switch (data.type) {

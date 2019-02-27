@@ -1,5 +1,5 @@
 /**
- * generator/index.ts
+ * generator/index.tsx
  *
  * Exports the generators so plop knows them
  */

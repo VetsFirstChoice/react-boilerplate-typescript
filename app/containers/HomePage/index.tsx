@@ -12,15 +12,15 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TopBar from '../TopBar';
-// import Menu from '../Menu';
+import Menu from '../Menu';
 // import Orders from '../Orders';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   public render() {
-    // const menu = (
-    //   <Menu/>
-    // );
+    const menu = (
+      <Menu isOpen={true}/>
+    );
     //
     // const content = (
     //   <Orders/>
@@ -29,13 +29,13 @@ export default class HomePage extends React.PureComponent {
     return (
       <Container>
         <Row>
-          <Col>
-            <TopBar isOpen={false}/>
+          <Col xs={12} sm={12} md={12} lg={12}>
+            <TopBar isOpen={true}/>
           </Col>
         </Row>
         <Row>
-          <Col>
-            {/*{menu}*/}
+          <Col xs={2} sm={2} md={2} lg={2}>
+            {menu}
           </Col>
           <Col>
             {/*{content}*/}
