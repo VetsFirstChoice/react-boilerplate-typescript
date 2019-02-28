@@ -86,9 +86,7 @@ export default class SortTable extends React.PureComponent {
     }
 
     return (
-      <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
         <Table columns={columns} dataSource={data} onChange={onChange} />
-      </div>
     );
   }
 }
