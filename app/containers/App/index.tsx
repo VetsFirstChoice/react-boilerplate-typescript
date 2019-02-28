@@ -48,7 +48,8 @@ export default function App() {
           onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
         >
           <Logo > <img src={require('../../images/covetrus_logo.png')} alt="Test" style={{ width: '150px' }} /></Logo>
-          <Menu mode="inline" defaultSelectedKeys={['4']}>
+          {/* Set default key to store value */}
+          <Menu mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1"><Link to="/"><Icon type="dashboard" theme="twoTone" />Dashboard</Link></Menu.Item>
             <Menu.Item key="2"><Link to="/scripts"><Icon type="edit" theme="twoTone" />Scripts</Link></Menu.Item>
             <Menu.Item key="3"><Link to="/orders"><Icon type="credit-card" theme="twoTone" />Orders</Link></Menu.Item>
