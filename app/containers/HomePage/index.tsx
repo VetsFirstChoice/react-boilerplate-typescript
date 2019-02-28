@@ -11,7 +11,7 @@
 import 'antd/dist/antd.css';
 
 import {
-  Layout, Menu, Breadcrumb, Icon, Avatar,
+  Layout, Menu, Breadcrumb, Icon, Avatar, Spin,
 } from 'antd';
 import * as React from 'react';
 
@@ -25,18 +25,17 @@ export default class HomePage extends React.PureComponent {
     const { Header, Content, Sider } = Layout;
 
     const Logo = styled.div`
-    border-radius: 3px;
-    border: 2px solid white;
     width: 200px;
     height: 50px;
     margin: 7px;
     float: left;
+    text-align: center;
     `;
 
     return (
       <Layout>
         <Header style={{padding: '0'}}>
-          <Logo />
+          <Logo><Spin /></Logo>
           <Menu
             theme="dark"
             mode="horizontal"
