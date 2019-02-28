@@ -10,11 +10,17 @@
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Layout, Menu, Icon,
-  Avatar, Button } from 'antd';
+import { Switch, Route, Link } from 'react-router-dom';
+
+import {
+  Layout, Menu, Icon,
+  Avatar, Button,
+} from 'antd';
 import HomePage from 'containers/HomePage/Loadable';
+import ScriptPage from 'containers/ScriptPage/Loadable';
 import OrderPage from 'containers/OrderPage/Loadable';
+import ExceptionPage from 'containers/ExceptionPage/Loadable';
+import AutoshipPage from 'containers/AutoshipPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
@@ -30,7 +36,6 @@ export default function App() {
 
   const { Header, Content, Sider, Footer } = Layout;
 
-
   return (
 
     <div>
@@ -44,11 +49,13 @@ export default function App() {
         >
           <Logo > <img src={require('../../images/covetrus_logo.png')} alt="Test" style={{ width: '150px' }} /></Logo>
           <Menu mode="inline" defaultSelectedKeys={['4']}>
-            <Menu.Item key="1"><Icon type="dashboard" theme="twoTone" />Dashboard</Menu.Item>
-            <Menu.Item key="2"><Icon type="edit" theme="twoTone" />Scripts</Menu.Item>
-            <Menu.Item key="3"><Icon type="credit-card" theme="twoTone" />Orders</Menu.Item>
-            <Menu.Item key="4"><Icon type="warning" theme="twoTone" />Exceptions</Menu.Item>
-            <Menu.Item key="5"><Icon type="schedule" theme="twoTone" />AutoShip</Menu.Item>
+            <Menu.Item key="1"><Link to="/"><Icon type="dashboard" theme="twoTone" />Dashboard</Link></Menu.Item>
+            <Menu.Item key="2"><Link to="/scripts"><Icon type="edit" theme="twoTone" />Scripts</Link></Menu.Item>
+            <Menu.Item key="3"><Link to="/orders"><Icon type="credit-card" theme="twoTone" />Orders</Link></Menu.Item>
+            <Menu.Item key="4">
+              <Link to="/exceptions"><Icon type="warning" theme="twoTone" />Exceptions</Link>
+            </Menu.Item>
+            <Menu.Item key="5"><Link to="/autoship"><Icon type="schedule" theme="twoTone" />AutoShip</Link></Menu.Item>
 
           </Menu>
         </Sider>
@@ -62,11 +69,14 @@ export default function App() {
           </Header>
           <Content style={{ margin: '24px 16px 0' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-            <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/orders" component={OrderPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/scripts" component={ScriptPage} />
+                <Route exact path="/orders" component={OrderPage} />
+                <Route exact path="/exceptions" component={ExceptionPage} />
+                <Route exact path="/autoship" component={AutoshipPage} />
+                <Route component={NotFoundPage} />
+              </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
