@@ -14,8 +14,8 @@ import * as React from 'react';
 export default class SortTable extends React.PureComponent {
   public render() {
     const columns: any = [{
-      title: 'Name',
-      dataIndex: 'name',
+      title: 'Order ID',
+      dataIndex: 'orderId',
       filters: [{
         text: 'Joe',
         value: 'Joe',
@@ -39,46 +39,79 @@ export default class SortTable extends React.PureComponent {
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ['descend'],
     }, {
-      title: 'Age',
-      dataIndex: 'age',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.age - b.age,
+      title: 'Order #',
+      dataIndex: 'orderNum',
+      sorter: (a, b) => a.orderNum - b.orderNum,
     }, {
-      title: 'Address',
-      dataIndex: 'address',
-      filters: [{
-        text: 'London',
-        value: 'London',
-      }, {
-        text: 'New York',
-        value: 'New York',
-      }],
-      filterMultiple: false,
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ['descend', 'ascend'],
+      title: 'Order Date',
+      dataIndex: 'orderDate',
+      sorter: (a, b) => a.orderDate - b.orderDate,
+    }, {
+      title: 'DVM ID',
+      dataIndex: 'dvmId',
+      sorter: (a, b) => a.dvmId - b.dvmId,
+    }, {
+      title: 'Client',
+      dataIndex: 'client',
+    }, {
+      title: 'Platform',
+      dataIndex: 'platform',
+    }, {
+      title: 'Ship Method',
+      dataIndex: 'shipMethod',
+    }, {
+      title: 'Order Status',
+      dataIndex: 'status',
+    }, {
+      title: 'Order Total',
+      dataIndex: 'total',
+      sorter: (a, b) => a.total - b.total,
     }];
 
     const data = [{
       key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      orderId: '5494685',
+      orderNum: '56995',
+      orderDate: '04/15/2017',
+      dvmId: '6584',
+      client: 'Cecilia Pozo',
+      platform: 'RoadRunner',
+      shipMethod: 'USPS',
+      status: 'Shipped',
+      total: '$87.50',
     }, {
       key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      orderId: '1525884',
+      orderNum: '21886',
+      orderDate: '12/31/2019',
+      dvmId: '9999',
+      client: 'Russ Cargill',
+      platform: 'VIP Petcare',
+      shipMethod: 'UPS',
+      status: 'Done',
+      total: '$34.75',
     }, {
       key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      orderId: '1326599',
+      orderNum: '25515',
+      orderDate: '01/23/2018',
+      dvmId: '4659',
+      client: 'Jeffory Lebowski',
+      platform: 'VPA',
+      shipMethod: 'FedEx',
+      status: 'Cancelled',
+      total: '$220.00',
     }, {
       key: '4',
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
     }];
 
     function onChange(pagination, filters, sorter) {
