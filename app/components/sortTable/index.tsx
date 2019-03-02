@@ -338,8 +338,7 @@ export default class SortTable extends React.PureComponent {
     const TabPane = Tabs.TabPane;
 
     const search = (
-      <Row type="flex" justify="space-around" align="middle"
-        style={{ background: '#fefefe', padding: '15px 0' }}>
+      <Row style={{ background: '#fefefe', padding: '15px 0' }}>
         <Col span={8}>
           <InputGroup compact>
             <Select defaultValue="Option1">

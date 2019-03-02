@@ -39,7 +39,7 @@ export default function App() {
         <SideMenu />
         <Layout>
           <Header />
-          <Content style={{ margin: '24px 24px'}}>
+          <Content style={{ margin: '24px 16px'}}>
           <Breadcrumbs />
             <div style={{ padding: 24, background: '#fff' }}>
               <Switch>
