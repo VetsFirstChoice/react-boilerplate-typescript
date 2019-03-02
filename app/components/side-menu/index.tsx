@@ -8,7 +8,7 @@
 // remove, use babel for antD css
 import 'antd/dist/antd.css';
 import * as React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu, Icon, Affix } from 'antd';
 import { Link } from 'react-router-dom';
 import Sider from 'antd/lib/layout/Sider';
 import styled from 'styled-components';
@@ -24,17 +24,18 @@ export default class SideMenu extends React.PureComponent {
     `;
 
     return (
-        <Sider
-          breakpoint="lg"
-          theme="light"
-          collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
+      <Sider
+        breakpoint="lg"
+        theme="light"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
+        }}
+      >
+        <Affix>
           <Logo><img src={require('../../images/covetrus_logo.png')} alt="Test" style={{ width: '150px' }} /></Logo>
           {/* Set default key to store value */}
           <Menu mode="inline" defaultSelectedKeys={['1']}>
@@ -77,7 +78,8 @@ export default class SideMenu extends React.PureComponent {
             </Link>
             </Menu.Item>
           </Menu>
-        </Sider>
+        </Affix>
+      </Sider>
     );
   }
 }

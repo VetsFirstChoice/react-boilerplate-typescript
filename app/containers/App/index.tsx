@@ -27,6 +27,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import Header from 'components/top-menu';
 import SideMenu from 'components/side-menu';
+import Breadcrumbs from 'components/breadcrumbs';
 
 export default function App() {
 
@@ -38,8 +39,9 @@ export default function App() {
         <SideMenu />
         <Layout>
           <Header />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: '360' }}>
+          <Content style={{ margin: '24px 24px'}}>
+          <Breadcrumbs />
+            <div style={{ padding: 24, background: '#fff' }}>
               <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/scripts" component={ScriptPage} />

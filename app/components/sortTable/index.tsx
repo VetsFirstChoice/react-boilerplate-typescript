@@ -21,6 +21,7 @@ export default class SortTable extends React.PureComponent {
     const columns: any = [{
       title: 'Order ID',
       dataIndex: 'orderId',
+      width: '150px',
       filters: [{
         text: 'Joe',
         value: 'Joe',
@@ -46,30 +47,39 @@ export default class SortTable extends React.PureComponent {
     }, {
       title: 'Order #',
       dataIndex: 'orderNum',
+      width: '100px',
       sorter: (a, b) => a.orderNum - b.orderNum,
     }, {
       title: 'Order Date',
       dataIndex: 'orderDate',
+      width: '100px',
       sorter: (a, b) => a.orderDate - b.orderDate,
     }, {
       title: 'DVM ID',
       dataIndex: 'dvmId',
+      width: '100px',
       sorter: (a, b) => a.dvmId - b.dvmId,
     }, {
       title: 'Client',
       dataIndex: 'client',
+      width: '150px',
     }, {
       title: 'Platform',
       dataIndex: 'platform',
+      width: '150px',
     }, {
       title: 'Ship Method',
       dataIndex: 'shipMethod',
+      width: '100px',
     }, {
       title: 'Order Status',
       dataIndex: 'status',
+      width: '150px',
+      render: text => <Badge status="processing" text={text} />,
     }, {
       title: 'Order Total',
       dataIndex: 'total',
+      width: '100px',
       sorter: (a, b) => a.total - b.total,
     }];
 
@@ -172,6 +182,149 @@ export default class SortTable extends React.PureComponent {
       shipMethod: 'USPS',
       status: 'Delayed',
       total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
     }];
 
     function onChange(pagination, filters, sorter) {
@@ -186,8 +339,8 @@ export default class SortTable extends React.PureComponent {
 
     const search = (
       <Row type="flex" justify="space-around" align="middle"
-      style={{ background: '#fefefe', padding: '15px 0' }}>
-        <Col span={12}>
+        style={{ background: '#fefefe', padding: '15px 0' }}>
+        <Col span={8}>
           <InputGroup compact>
             <Select defaultValue="Option1">
               <Option value="Option1">Order #</Option>
@@ -211,7 +364,7 @@ export default class SortTable extends React.PureComponent {
             <Button icon="search" shape="circle-outline" />
           </InputGroup>
         </Col>
-        <br/>
+        <br />
       </Row>
     );
 
@@ -257,21 +410,21 @@ export default class SortTable extends React.PureComponent {
           <Button>Royal Canin Open Orders</Button>
           <Button>Hills Open Orders</Button>
         </ButtonGroup>
-        <br/>
+        <br />
       </Row>
     );
 
     return (
       <div>
-        <Tabs defaultActiveKey="1" style={{height: '135px'}}>
+        <Tabs defaultActiveKey="1" style={{ height: '135px' }}>
           <TabPane tab={<span><Icon type="search" />Search</span>} key="1">
-          {search}
+            {search}
           </TabPane>
           <TabPane tab={<span><Icon type="eye" />Views</span>} key="2">
-          {views}
+            {views}
           </TabPane>
           <TabPane tab={<span><Icon type="profile" />Queues</span>} key="3">
-          {queues}
+            {queues}
           </TabPane>
         </Tabs>
         <Table columns={columns} dataSource={data} onChange={onChange} />
