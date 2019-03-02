@@ -7,12 +7,17 @@
 
 // remove, use babel for antD css
 import 'antd/dist/antd.css';
-import { Table } from 'antd';
+import { Table, Button, Row, Badge, Select, Input, DatePicker, Col, Tabs, Icon } from 'antd';
 import * as React from 'react';
+import ButtonGroup from 'antd/lib/button/button-group';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class SortTable extends React.PureComponent {
   public render() {
+
+    const InputGroup = Input.Group;
+    const Option = Select.Option;
+
     const columns: any = [{
       title: 'Order ID',
       dataIndex: 'orderId',
@@ -102,7 +107,62 @@ export default class SortTable extends React.PureComponent {
       status: 'Cancelled',
       total: '$220.00',
     }, {
-      key: '4',
+      key: '5',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '6',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '7',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '8',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '9',
+      orderId: '2544152',
+      orderNum: '45985',
+      orderDate: '06/30/2018',
+      dvmId: '0418',
+      client: 'Emily Baker',
+      platform: 'Vets First Choice',
+      shipMethod: 'USPS',
+      status: 'Delayed',
+      total: '$120.12',
+    }, {
+      key: '10',
       orderId: '2544152',
       orderNum: '45985',
       orderDate: '06/30/2018',
@@ -118,8 +178,104 @@ export default class SortTable extends React.PureComponent {
       console.log('params', pagination, filters, sorter);
     }
 
+    const { RangePicker } = DatePicker;
+
+    const dateFormat = 'DD/MM/YYYY';
+
+    const TabPane = Tabs.TabPane;
+
+    const search = (
+      <Row type="flex" justify="space-around" align="middle"
+      style={{ background: '#fefefe', padding: '15px 0' }}>
+        <Col span={12}>
+          <InputGroup compact>
+            <Select defaultValue="Option1">
+              <Option value="Option1">Order #</Option>
+              <Option value="Option2">Client Name</Option>
+              <Option value="Option3">Client Email</Option>
+              <Option value="Option4">DVM ID</Option>
+              <Option value="Option5">Invoice #</Option>
+              <Option value="Option6">Order ID</Option>
+              <Option value="Option7">Ship Order #</Option>
+              <Option value="Option8">SKU</Option>
+              <Option value="Option9">Tote #</Option>
+              <Option value="Option10">Tracking #</Option>
+            </Select>
+            <Input style={{ width: '50%' }} />
+            <Button icon="search" shape="circle-outline" />
+          </InputGroup>
+        </Col>
+        <Col span={12}>
+          <InputGroup compact>
+            <RangePicker format={dateFormat} />
+            <Button icon="search" shape="circle-outline" />
+          </InputGroup>
+        </Col>
+        <br/>
+      </Row>
+    );
+
+    const views = (
+      <Row type="flex" justify="space-around" align="middle"
+        style={{ background: '#fefefe', padding: '15px 0' }}>
+        <Badge count={2} overflowCount={10}>
+          <Button type="primary" ghost size="small">CC Auth Declined</Button>
+        </Badge>
+        <Badge count={16} overflowCount={10}>
+          <Button type="danger" ghost size="small">PV1 Exceptions</Button>
+        </Badge>
+        <Badge count={10} overflowCount={10}>
+          <Button type="danger" ghost size="small">Inventory Exceptions</Button>
+        </Badge>
+        <Badge count={3} overflowCount={10}>
+          <Button type="primary" ghost size="small">Call Center Exceptions</Button>
+        </Badge>
+        <Badge count={8} overflowCount={10}>
+          <Button type="danger" ghost size="small">Tech Exceptions</Button>
+        </Badge>
+        <Badge count={4} overflowCount={10}>
+          <Button type="primary" ghost size="small">Fraud Risk</Button>
+        </Badge>
+        <Badge count={1} overflowCount={10}>
+          <Button type="primary" ghost size="small">Ads Exceptions</Button>
+        </Badge>
+        <Badge count={0} overflowCount={10}>
+          <Button type="primary" ghost size="small">Autoship Exceptions</Button>
+        </Badge>
+        <br />
+      </Row>
+    );
+
+    const queues = (
+      <Row style={{ background: '#fefefe', padding: '15px 0' }}>
+        <ButtonGroup>
+          <Button>All Open</Button>
+          <Button>My Orders</Button>
+          <Button>Fullfillment Processing</Button>
+          <Button>Inventory In Motion</Button>
+          <Button>Purina Open Orders</Button>
+          <Button>Royal Canin Open Orders</Button>
+          <Button>Hills Open Orders</Button>
+        </ButtonGroup>
+        <br/>
+      </Row>
+    );
+
     return (
+      <div>
+        <Tabs defaultActiveKey="1" style={{height: '135px'}}>
+          <TabPane tab={<span><Icon type="search" />Search</span>} key="1">
+          {search}
+          </TabPane>
+          <TabPane tab={<span><Icon type="eye" />Views</span>} key="2">
+          {views}
+          </TabPane>
+          <TabPane tab={<span><Icon type="profile" />Queues</span>} key="3">
+          {queues}
+          </TabPane>
+        </Tabs>
         <Table columns={columns} dataSource={data} onChange={onChange} />
+      </div>
     );
   }
 }
