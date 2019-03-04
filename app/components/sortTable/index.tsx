@@ -21,27 +21,7 @@ export default class SortTable extends React.PureComponent {
     const columns: any = [{
       title: 'Order ID',
       dataIndex: 'orderId',
-      width: '150px',
-      filters: [{
-        text: 'Joe',
-        value: 'Joe',
-      }, {
-        text: 'Jim',
-        value: 'Jim',
-      }, {
-        text: 'Submenu',
-        value: 'Submenu',
-        children: [{
-          text: 'Green',
-          value: 'Green',
-        }, {
-          text: 'Black',
-          value: 'Black',
-        }],
-      }],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      width: '100px',
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ['descend'],
     }, {
@@ -62,20 +42,158 @@ export default class SortTable extends React.PureComponent {
     }, {
       title: 'Client',
       dataIndex: 'client',
-      width: '150px',
+      width: '100px',
     }, {
       title: 'Platform',
       dataIndex: 'platform',
-      width: '150px',
+      width: '100px',
+      filters: [
+        {
+          text: 'Recent',
+          value: 'recentPlatforms',
+          children: [{
+            text: 'Vets First Choice',
+            value: 'Vets First Choice',
+          }],
+        }, {
+          text: 'All',
+          value: 'allPlatforms',
+          children: [{
+            text: 'Atlas',
+            value: 'Atlas',
+          }, {
+            text: 'MyVetsMeds',
+            value: 'MyVetsMeds',
+          }, {
+            text: 'PTP',
+            value: 'PTP',
+          }, {
+            text: 'RoadRunner',
+            value: 'RoadRunner',
+          }, {
+            text: 'Vets First Choice',
+            value: 'Vets First Choice',
+          }, {
+            text: 'VIP Petcare',
+            value: 'VIP Petcare',
+          }, {
+            text: 'VPA',
+            value: 'VPA',
+          }],
+        }],
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+    }, {
+      title: 'Facility',
+      dataIndex: 'facility',
+      width: '100px',
+      filters: [
+        {
+          text: 'Recent',
+          value: 'Recent Facilities',
+          children: [{
+            text: 'VFC Warehouse',
+            value: 'VFC Warehouse',
+          }],
+        }, {
+          text: 'All',
+          value: 'All Facilities',
+          children: [{
+            text: 'Atlas Facility',
+            value: 'Atlas Facility',
+          }, {
+            text: 'Greer NC Facility',
+            value: 'Greer NC Facility',
+          }, {
+            text: 'HILLS CA Facility',
+            value: 'HILLS CA Facility',
+          }, {
+            text: 'HILLS NY Facility',
+            value: 'HILLS NY Facility',
+          }, {
+            text: 'HILLS TX Facility',
+            value: 'HILLS TX Facility',
+          }, {
+            text: 'Netherlands Facility',
+            value: 'Netherlands Facility',
+          }, {
+            text: 'Portland Facility',
+            value: 'Portland Facility',
+          }],
+        }],
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
     }, {
       title: 'Ship Method',
       dataIndex: 'shipMethod',
       width: '100px',
+      filters: [
+        {
+          text: 'Recent',
+          value: 'Recent Ship Methods',
+          children: [{
+            text: 'Standard',
+            value: 'Standard',
+          }],
+        }, {
+          text: 'All',
+          value: 'All Ship Methods',
+          children: [{
+            text: '2nd Day',
+            value: '2nd Day',
+          }, {
+            text: 'Ground',
+            value: 'Ground',
+          }, {
+            text: 'Next Day',
+            value: 'Next Day',
+          }, {
+            text: 'Standard',
+            value: 'Standard',
+          }, {
+            text: 'USPS First Class',
+            value: 'USPS First Class',
+          }],
+        }],
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
     }, {
       title: 'Order Status',
       dataIndex: 'status',
       width: '150px',
-      render: text => <Badge status="processing" text={text} />,
+      filters: [
+        {
+          text: 'Common Statuses',
+          value: 'Common Statuses',
+          children: [{
+            text: 'Fulfillment Processing',
+            value: 'Fulfillment Processing',
+          }, {
+            text: 'Canceled',
+            value: 'Canceled',
+          }, {
+            text: 'CC Auth Declined',
+            value: 'CC Auth Declined',
+          }],
+        }, {
+          text: 'All',
+          value: 'allStatuses',
+          children: [{
+            text: 'Canceled',
+            value: 'Canceled',
+          }, {
+            text: 'Fulfillment Ready',
+            value: 'Fulfillment Ready',
+          }, {
+            text: 'Pending Authorization',
+            value: 'Pending Authorization',
+          }, {
+            text: 'Pharmacy',
+            value: 'Pharmacy',
+          }, {
+            text: 'Sent for Fulfillment',
+            value: 'Sent for Fulfillment',
+          }],
+        }],
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      render: text => <Badge status="processing" text={text}/>,
     }, {
       title: 'Order Total',
       dataIndex: 'total',
@@ -353,23 +471,23 @@ export default class SortTable extends React.PureComponent {
               <Option value="Option9">Tote #</Option>
               <Option value="Option10">Tracking #</Option>
             </Select>
-            <Input style={{ width: '50%' }} />
-            <Button icon="search" shape="circle-outline" />
+            <Input style={{ width: '50%' }}/>
+            <Button icon="search" shape="circle-outline"/>
           </InputGroup>
         </Col>
         <Col span={12}>
           <InputGroup compact>
-            <RangePicker format={dateFormat} />
-            <Button icon="search" shape="circle-outline" />
+            <RangePicker format={dateFormat}/>
+            <Button icon="search" shape="circle-outline"/>
           </InputGroup>
         </Col>
-        <br />
+        <br/>
       </Row>
     );
 
     const views = (
       <Row type="flex" justify="space-around" align="middle"
-        style={{ background: '#fefefe', padding: '15px 0' }}>
+           style={{ background: '#fefefe', padding: '15px 0' }}>
         <Badge count={2} overflowCount={10}>
           <Button type="primary" ghost size="small">CC Auth Declined</Button>
         </Badge>
@@ -394,7 +512,7 @@ export default class SortTable extends React.PureComponent {
         <Badge count={0} overflowCount={10}>
           <Button type="primary" ghost size="small">Autoship Exceptions</Button>
         </Badge>
-        <br />
+        <br/>
       </Row>
     );
 
@@ -403,30 +521,30 @@ export default class SortTable extends React.PureComponent {
         <ButtonGroup>
           <Button>All Open</Button>
           <Button>My Orders</Button>
-          <Button>Fullfillment Processing</Button>
+          <Button>Fulfillment Processing</Button>
           <Button>Inventory In Motion</Button>
           <Button>Purina Open Orders</Button>
           <Button>Royal Canin Open Orders</Button>
           <Button>Hills Open Orders</Button>
         </ButtonGroup>
-        <br />
+        <br/>
       </Row>
     );
 
     return (
       <div>
         <Tabs defaultActiveKey="1" style={{ height: '135px' }}>
-          <TabPane tab={<span><Icon type="search" />Search</span>} key="1">
+          <TabPane tab={<span><Icon type="search"/>Search</span>} key="1">
             {search}
           </TabPane>
-          <TabPane tab={<span><Icon type="eye" />Views</span>} key="2">
+          <TabPane tab={<span><Icon type="eye"/>Views</span>} key="2">
             {views}
           </TabPane>
-          <TabPane tab={<span><Icon type="profile" />Queues</span>} key="3">
+          <TabPane tab={<span><Icon type="profile"/>Queues</span>} key="3">
             {queues}
           </TabPane>
         </Tabs>
-        <Table columns={columns} dataSource={data} onChange={onChange} />
+        <Table columns={columns} dataSource={data} onChange={onChange}/>
       </div>
     );
   }
