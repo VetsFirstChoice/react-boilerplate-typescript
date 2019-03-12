@@ -47,7 +47,7 @@ export default class SideMenu extends React.PureComponent {
               </span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            {/* <Menu.Item key="2">
               <Link to="/scripts">
                 <Icon type="edit" theme="twoTone" style={{ display: 'inline-flex' }} />
                 Scripts
@@ -76,7 +76,7 @@ export default class SideMenu extends React.PureComponent {
                 <Icon type="schedule" theme="twoTone" style={{ display: 'inline-flex' }} />
                 Autoship
             </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </Affix>
       </Sider>
