@@ -13,12 +13,15 @@
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
-
+import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import Header from 'components/top-menu';
 import SideMenu from 'components/side-menu';
 
+import OrderPage from 'containers/OrderPage/Loadable';
+import HomePage from 'containers/HomePage/Loadable';
+import NotFoundPage from 'containers/NotFoundPage/Loadable';
 export default function App() {
 
   const { Content, Footer } = Layout;
@@ -30,7 +33,13 @@ export default function App() {
         <Layout>
           <Header />
           <Content style={{ margin: '24px 16px' }}>
-            <div>Hello World</div>
+          <div style={{ padding: 24, background: '#fff' }}>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/orders" component={OrderPage} />
+                <Route component={NotFoundPage} />
+              </Switch>
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>©2019 Covetrus</Footer>
         </Layout>
