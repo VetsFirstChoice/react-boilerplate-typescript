@@ -6,25 +6,33 @@
  */
 
 // remove, use babel for antD css
-import { Steps, Row, Col, Card, List, Table, Icon, Alert, Layout, Button, PageHeader } from 'antd';
+import { Steps, Row, Col, Card, List, Table, Icon, Layout, Button, PageHeader } from 'antd';
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
 
-const orderDetailData = [
-  'Order ID: 2253921',
-  'Date Placed: 01/09/2019@10:52:48 AM EST',
-  'Platform Type: Vets First Choice',
-  'Order Origin: Pet Owner',
-  'Order Method: Web',
-  'Submitted by: Client',
-  'Type: Patient Specific',
+const practiceDetailData = [
+  ['Name:', 'Practice 4399'],
+  ['Phone:', '(505) 761-5555'],
+  ['Practice:', 'Partner Practice'],
+  ['DVM ID:', '4399'],
 ];
 
 const clientDetailData = [
-  'Name: Nikko Cabrera',
-  'Email: nikko.cabrera@roadrunnerpharmacy.net',
-  'Phone 1: (623) 521-1111',
+  ['Name:', 'Nikko Cabrera'],
+  ['Phone 1:', '(623) 521-1111'],
+  ['Email:', 'nikko.cabrera@roadrunnerpharmacy.net'],
+];
+
+const paymentDetailData = [
+  ['Type:', 'Client Pay'],
+  ['Method:', 'Visa - 1111 - 01/2021'],
+  ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
+];
+
+const shippingDetailData = [
+  ['Method:', 'Next Day'],
+  ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
 ];
 
 /* eslint-disable react/prefer-stateless-function */
@@ -69,21 +77,6 @@ export default class OrderDetail extends React.PureComponent {
       'Auth Vet: Demo Vet',
     ];
 
-    const routes = [
-      {
-        path: '/',
-        breadcrumbName: 'Home',
-      },
-      {
-        path: 'orders',
-        breadcrumbName: 'Orders',
-      },
-      {
-        path: 'order',
-        breadcrumbName: 'Order # 1000 0000 1696 80',
-      },
-    ];
-
     const detailedList = (
       <Row gutter={16}>
         <Col span={8}>
@@ -115,9 +108,8 @@ export default class OrderDetail extends React.PureComponent {
       <Layout>
         <PageHeader
           onBack={() => console.log('back!')}
-          title="Status"
+          title="Order # 1000 0000 1696 80"
           subTitle="Shipped 01/09/2018"
-          breadcrumb={{ routes: routes }}
           extra={[
             <Button key="3" type="primary" ghost>Cancel Order</Button>,
             <Button key="2" type="primary" ghost>Fraud</Button>,
@@ -134,43 +126,113 @@ export default class OrderDetail extends React.PureComponent {
             <Step title="Shipped" description="This is a description" />
           </Steps>
         </Row>
-        <Row gutter={16} style={{ paddingTop: '25px' }}>
-          <Col className="gutter-row" span={7}>
-            <Card size="small" title={<h3><Icon type="shopping" theme="twoTone" /> Order Details</h3>}>
+        <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+          <Col className="gutter-row" span={6}>
+            <Card size="small" title={<h3><Icon type="shop" theme="twoTone" />&nbsp;Practice</h3>}
+              actions={[<div><Icon type="team" /> Assist</div>, <div><Icon type="eye" /> View</div>]}>
               <List
                 size="small"
-                // header={<div>Header</div>}
-                // footer={<div>Footer</div>}
-                dataSource={orderDetailData}
-                renderItem={item => (<List.Item>{item}</List.Item>)}
-              />
-            </Card>
-            <Card size="small" title={<h3><Icon type="idcard" theme="twoTone" /> Client Details</h3>}
-              style={{ marginTop: '25px' }}>
-              <List
-                size="small"
-                // header={<div>Header</div>}
-                // footer={<div>Footer</div>}
-                dataSource={clientDetailData}
-                renderItem={item => (<List.Item>{item}</List.Item>)}
+                dataSource={practiceDetailData}
+                renderItem={item => (
+                  <List.Item>
+                    <Col span={8}>
+                      <h4>{item[0]}</h4>
+                    </Col>
+                    <Col span={14}>
+                      <p>{item[1]}</p>
+                    </Col>
+                  </List.Item>
+                )}
               />
             </Card>
           </Col>
-          <Col className="gutter-row" span={17}>
+          <Col className="gutter-row" span={6}>
+            <Card size="small" title={<h3><Icon type="idcard" theme="twoTone" />&nbsp;Client</h3>}
+              actions={[<div><Icon type="team" /> Assist</div>, <div><Icon type="eye" /> View</div>]}
+            >
+              <List
+                size="small"
+                dataSource={clientDetailData}
+                renderItem={item => (
+                  <List.Item>
+                    <Col span={8}>
+                      <h4>{item[0]}</h4>
+                    </Col>
+                    <Col span={14}>
+                      <p style={{ wordBreak: 'break-all' }}>{item[1]}</p>
+                    </Col>
+                  </List.Item>
+                )}
+              />
+            </Card>
+          </Col>
+          <Col className="gutter-row" span={6}>
+            <Card size="small"
+              title={<h3><Icon type="credit-card" theme="twoTone" />&nbsp;Payment</h3>}
+              actions={[<div><Icon type="edit" /> Edit</div>]}
+            >
+              <List
+                size="small"
+                dataSource={paymentDetailData}
+                renderItem={item => (
+                  <List.Item>
+                    <Col span={8}>
+                      <h4>{item[0]}</h4>
+                    </Col>
+                    <Col span={14}>
+                      <p>{item[1]}</p>
+                    </Col>
+                  </List.Item>
+                )}
+              />
+            </Card>
+          </Col>
+          <Col className="gutter-row" span={6}>
+            <Card size="small" title={<h3><Icon type="idcard" theme="twoTone" />&nbsp;Shipping</h3>}
+              actions={[<div><Icon type="edit" /> Edit</div>]}
+            >
+              <List
+                size="small"
+                dataSource={shippingDetailData}
+                renderItem={item => (
+                  <List.Item>
+                    <Col span={8}>
+                      <h4>{item[0]}</h4>
+                    </Col>
+                    <Col span={14}>
+                      <p>{item[1]}</p>
+                    </Col>
+                  </List.Item>
+                )}
+              />
+            </Card>
+          </Col>
+        </Row>
+        <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+          <Col className="gutter-row" span={24}>
             <Card size="small" title={<h3><Icon type="profile" theme="twoTone" /> Order Items</h3>}>
-              <Alert
-                message="Shipping #: 1223592101"
-                description="Shipped 01/09/2019 USPS First Class - 94001102054920000009815"
-                type="info"
-                showIcon
-                style={{ margin: '20px' }}
-              />
-              <Table
-                columns={columns}
-                dataSource={data}
-                expandedRowRender=
-                {() => detailedList}
-              />
+              <Card title={
+                (
+                  <Row style={{ padding: '15px 0 15px 20px ' }}>
+                    <Col span={5}>
+                      <p>Shipping #: 1223592101</p>
+                    </Col>
+                    <Col span={8}>
+                      <p>Shipped 01/09/2019</p>
+                    </Col>
+                    <Col span={24}>
+                      <a>USPS First Class - 94001102054920000009815</a>
+                    </Col>
+                  </Row>
+                )
+              } bordered={false}>
+                <Table
+                  columns={columns}
+                  dataSource={data}
+                  expandedRowRender=
+                  {() => detailedList}
+                />
+              </Card>
             </Card>
           </Col>
         </Row>
