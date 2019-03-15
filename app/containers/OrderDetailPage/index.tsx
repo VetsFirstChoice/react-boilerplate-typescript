@@ -1,7 +1,7 @@
 /*
- * OrderPage
+ * OrderDetailPage
  *
- * This is the order page of our App, at the '/orders' route
+ * This is the order details page of our App, at the '/orders/params' route
  *
  * NOTE: while this component should technically be a stateless functional
  * component (SFC), hot reloading does not currently support SFCs. If hot
@@ -10,18 +10,16 @@
  */
 
 import * as React from 'react';
-import Order from 'components/order-component';
+import OrderDetail from 'components/order-detail-component';
 import { Layout } from 'antd';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class OrderPage extends React.PureComponent {
-  private columns: any = [];
-  private data = [];
+export default class OrderDetailPage extends React.PureComponent {
 
   public render() {
     return (
-      <Layout style={{ background: '#fff', padding: 24}}>
-        <Order columns={this.columns} data={this.data} />
+      <Layout>
+        <OrderDetail />
       </Layout>
     );
   }

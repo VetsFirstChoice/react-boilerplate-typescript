@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import { Table, Button, Row, Badge, Select, Input, DatePicker, Col, Tabs, Icon } from 'antd';
 import * as React from 'react';
 import ButtonGroup from 'antd/lib/button/button-group';
+import { Link } from 'react-router-dom';
 
 interface Props {
   columns: any;
@@ -35,6 +36,7 @@ export default class SortTable extends React.PureComponent<Props> {
       dataIndex: 'orderNum',
       width: '100px',
       sorter: (a, b) => a.orderNum - b.orderNum,
+      render: text => <Link to="orders/784776467">{text}</Link>,
     }, {
       title: 'Order Date',
       dataIndex: 'orderDate',
@@ -573,7 +575,7 @@ export default class SortTable extends React.PureComponent<Props> {
             {queues}
           </TabPane>
         </Tabs>
-        <Table columns={columns} dataSource={data} onChange={onChange}/>
+        <Table columns={columns} dataSource={data} onChange={onChange} />
       </div>
     );
   }

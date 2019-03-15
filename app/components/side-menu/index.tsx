@@ -51,7 +51,6 @@ export default class SideMenu extends React.PureComponent {
                   <Icon
                     type="dashboard"
                     theme="twoTone"
-                    style={{ display: 'inline-flex' }}
                   />
                   Dashboard
                 </span>
@@ -62,7 +61,6 @@ export default class SideMenu extends React.PureComponent {
                 <Icon
                   type="edit"
                   theme="twoTone"
-                  style={{ display: 'inline-flex' }}
                 />
                 Scripts
               </Link>
@@ -82,7 +80,6 @@ export default class SideMenu extends React.PureComponent {
                 <Icon
                   type="shop"
                   theme="twoTone"
-                  style={{ display: 'inline-flex' }}
                 />
                 Products
               </Link>
@@ -92,7 +89,6 @@ export default class SideMenu extends React.PureComponent {
                 <Icon
                   type="warning"
                   theme="twoTone"
-                  style={{ display: 'inline-flex' }}
                 />
                 Exceptions
               </Link>
@@ -102,7 +98,6 @@ export default class SideMenu extends React.PureComponent {
                 <Icon
                   type="schedule"
                   theme="twoTone"
-                  style={{ display: 'inline-flex' }}
                 />
                 Autoship
               </Link>
