@@ -89,7 +89,6 @@ export default class OrderDetail extends React.PureComponent {
         <Col span={8}>
           <List
             size="small"
-             
             dataSource={prodData}
             renderItem={item => <List.Item>{item}</List.Item>}
           />
@@ -97,7 +96,6 @@ export default class OrderDetail extends React.PureComponent {
         <Col span={8}>
           <List
             size="small"
-             
             dataSource={prodData2}
             renderItem={item => <List.Item>{item}</List.Item>}
           />
@@ -143,7 +141,6 @@ export default class OrderDetail extends React.PureComponent {
                 size="small"
                 // header={<div>Header</div>}
                 // footer={<div>Footer</div>}
-                
                 dataSource={orderDetailData}
                 renderItem={item => (<List.Item>{item}</List.Item>)}
               />
@@ -154,7 +151,6 @@ export default class OrderDetail extends React.PureComponent {
                 size="small"
                 // header={<div>Header</div>}
                 // footer={<div>Footer</div>}
-                 
                 dataSource={clientDetailData}
                 renderItem={item => (<List.Item>{item}</List.Item>)}
               />
