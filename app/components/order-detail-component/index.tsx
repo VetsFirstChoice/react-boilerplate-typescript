@@ -6,8 +6,10 @@
  */
 
 // remove, use babel for antD css
-import { Steps, Row, Col, Card, List, Table, Icon, Layout, Button, PageHeader, Tag } from 'antd';
+import { Steps, Row, Col, Card, List, Table, Icon, Layout, PageHeader, Tag, Button } from 'antd';
 import 'antd/dist/antd.css';
+
+import { NoteDrawer } from '../note-drawer/index';
 
 import * as React from 'react';
 
@@ -27,38 +29,43 @@ export default class OrderDetail extends React.PureComponent {
           onBack={() => console.log('back!')}
           title="Order # 1000 0000 1696 80"
           subTitle={<Tag color="volcano">Rush Order</Tag>}
-          extra={[
-            <Button key="3" type="primary">Cancel Order</Button>,
-            <Button key="2" type="primary">Fraud</Button>,
-            <Button key="1" type="primary">Flag Order</Button>,
-            <Button key="1" type="primary">Refund Order</Button>,
-          ]}
+          extra={[<NoteDrawer />]}
           style={{ margin: '0px', padding: '16px', backgroundColor: '#f0f2f5' }}
         >
           <Row style={{ padding: '10px' }}>
             <Col span={6}>
               <Row>
-                Order ID: 2253921
-          </Row>
+                <h4>Order ID: 2253921</h4>
+              </Row>
               <Row>
-                Platform Type: Vets First Choice
-          </Row>
+                <h4>
+                  Platform Type: Vets First Choice
+                </h4>
+              </Row>
             </Col>
             <Col span={6}>
               <Row>
-                Order Origin: Pet Owner
-          </Row>
+                <h4>
+                  Order Origin: Pet Owner
+                </h4>
+              </Row>
               <Row>
-                Order Method: Web
-          </Row>
+                <h4>
+                  Order Method: Web
+                </h4>
+              </Row>
             </Col>
             <Col span={6}>
               <Row>
-                Submitted By: Client
-          </Row>
+                <h4>
+                  Submitted By: Client
+                </h4>
+              </Row>
               <Row>
-                Type: Patient Specific
-          </Row>
+                <h4>
+                  Type: Patient Specific
+                </h4>
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -72,8 +79,8 @@ export default class OrderDetail extends React.PureComponent {
         </PageHeader>
         <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
           <Col className="gutter-row" span={6}>
-            <Card size="small" title={<h3><Icon type="idcard" theme="twoTone" />&nbsp;Client</h3>}
-              actions={[<div><Icon type="team" /> Assist</div>, <div><Icon type="eye" /> View</div>]}
+            <Card size="small" title={<h4><Icon type="idcard" theme="twoTone" />&nbsp;Client</h4>}
+              actions={[<Button><Icon type="team" /> Assist</Button>, <Button><Icon type="eye" /> View</Button>]}
             >
               <List
                 size="small"
@@ -92,8 +99,10 @@ export default class OrderDetail extends React.PureComponent {
             </Card>
           </Col>
           <Col className="gutter-row" span={6}>
-            <Card size="small" title={<h3><Icon type="shop" theme="twoTone" />&nbsp;Practice</h3>}
-              actions={[<div><Icon type="team" /> Assist</div>, <div><Icon type="eye" /> View</div>]}>
+            <Card
+              size="small"
+              title={<h4><Icon type="shop" theme="twoTone" />&nbsp;Practice</h4>}
+              actions={[<Button><Icon type="team" /> Assist</Button>, <Button><Icon type="eye" /> View</Button>]}>
               <List
                 size="small"
                 dataSource={practiceDetailData}
@@ -112,8 +121,8 @@ export default class OrderDetail extends React.PureComponent {
           </Col>
           <Col className="gutter-row" span={6}>
             <Card size="small"
-              title={<h3><Icon type="credit-card" theme="twoTone" />&nbsp;Payment</h3>}
-              actions={[<div><Icon type="edit" /> Edit</div>]}
+              title={<h4><Icon type="credit-card" theme="twoTone" />&nbsp;Payment</h4>}
+              actions={[<Button><Icon type="edit" /> Edit</Button>]}
             >
               <List
                 size="small"
@@ -132,8 +141,8 @@ export default class OrderDetail extends React.PureComponent {
             </Card>
           </Col>
           <Col className="gutter-row" span={6}>
-            <Card size="small" title={<h3><Icon type="idcard" theme="twoTone" />&nbsp;Shipping</h3>}
-              actions={[<div><Icon type="edit" /> Edit</div>]}
+            <Card size="small" title={<h4><Icon type="idcard" theme="twoTone" />&nbsp;Shipping</h4>}
+              actions={[<Button><Icon type="edit" /> Edit</Button>]}
             >
               <List
                 size="small"
@@ -154,7 +163,7 @@ export default class OrderDetail extends React.PureComponent {
         </Row>
         <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
           <Col className="gutter-row" span={24}>
-            <Card size="small" title={<h3><Icon type="profile" theme="twoTone" /> Order Items</h3>}>
+            <Card size="small" title={<h4><Icon type="profile" theme="twoTone" /> Order Items</h4>}>
               <Card title={
                 (
                   <Row style={{ padding: '15px 0 15px 20px ' }}>
