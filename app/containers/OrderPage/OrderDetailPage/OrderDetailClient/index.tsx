@@ -11,25 +11,26 @@ import 'antd/dist/antd.css';
 
 import * as React from 'react';
 
-import { practiceDetailData } from './constants';
+import { clientDetailData } from './constants';
 
-export default function OrderDetailHeader() {
+export default function OrderDetailClient() {
 
   return (
     <Card
       size="small"
-      title={<h4><Icon type="shop" theme="twoTone"/>&nbsp;Practice</h4>}
-      actions={[<Button><Icon type="team"/> Assist</Button>, <Button><Icon type="eye"/> View</Button>]}>
+      title={<h4><Icon type="idcard" theme="twoTone"/>&nbsp;Client</h4>}
+      actions={[<Button><Icon type="team"/> Assist</Button>, <Button><Icon type="eye"/> View</Button>]}
+    >
       <List
         size="small"
-        dataSource={practiceDetailData}
+        dataSource={clientDetailData}
         renderItem={item => (
           <List.Item>
             <Col span={8}>
               <h4>{item[0]}</h4>
             </Col>
             <Col span={14}>
-              <p>{item[1]}</p>
+              <p style={{ wordBreak: 'break-all' }}>{item[1]}</p>
             </Col>
           </List.Item>
         )}
