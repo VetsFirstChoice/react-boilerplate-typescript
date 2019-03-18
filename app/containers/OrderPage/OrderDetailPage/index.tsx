@@ -1,7 +1,7 @@
 /*
- * ScriptPage
+ * OrderDetailPage
  *
- * This is the script page of our App, at the '/scripts' route
+ * This is the order details page of our App, at the '/orders/params' route
  *
  * NOTE: while this component should technically be a stateless functional
  * component (SFC), hot reloading does not currently support SFCs. If hot
@@ -10,11 +10,16 @@
  */
 
 import * as React from 'react';
+import OrderDetail from 'containers/OrderPage/OrderDetail';
+import { Layout } from 'antd';
 
 /* eslint-disable react/prefer-stateless-function */
-export default function ScriptPage() {
+export default function OrderDetailPage() {
+
   return (
-    <div>Script</div>
+    <Layout>
+      <OrderDetail/>
+    </Layout>
   );
 }
 

@@ -12,8 +12,7 @@ import * as React from 'react';
 import { Layout, Affix } from 'antd';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class TopMenu extends React.PureComponent {
-  public render() {
+export default function TopMenu() {
     const { Header } = Layout;
 
     return (
@@ -21,6 +20,5 @@ export default class TopMenu extends React.PureComponent {
         <Header style={{ background: '#fff' }}/>
       </Affix>
     );
-  }
 }
 

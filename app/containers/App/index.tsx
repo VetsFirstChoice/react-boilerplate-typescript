@@ -16,11 +16,12 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import Header from 'components/top-menu';
-import SideMenu from 'components/side-menu';
+import Header from 'containers/TopMenu';
+import SideMenu from 'containers/SideMenu';
 
-import OrderPage from 'containers/OrderPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
+import OrderPage from 'containers/OrderPage/Loadable';
+import OrderDetailPage from 'containers/OrderPage/OrderDetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 export default function App() {
 
@@ -32,11 +33,12 @@ export default function App() {
         <SideMenu />
         <Layout>
           <Header />
-          <Content style={{ margin: '24px 16px' }}>
-          <div style={{ padding: 24, background: '#fff' }}>
+          <Content style={{ margin: '10px'}}>
+          <div style={{ padding: '24px' }}>
               <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/orders" component={OrderPage} />
+                <Route path="/orders/:pathParam?" component={OrderDetailPage} />
                 <Route component={NotFoundPage} />
               </Switch>
             </div>

@@ -10,17 +10,15 @@
  */
 
 import * as React from 'react';
-import Order from 'components/order-component';
+import Orders from 'containers/OrderPage/Orders';
+import { Layout } from 'antd';
 
-/* eslint-disable react/prefer-stateless-function */
-export default class OrderPage extends React.PureComponent {
-  private columns: any = [];
-  private data = [];
+export default function OrdersPage() {
 
-  public render() {
-    return (
-      <Order columns={this.columns} data={this.data}/>
-    );
-  }
+  return (
+    <Layout style={{ background: '#fff', padding: 24 }}>
+      <Orders/>
+    </Layout>
+  );
 }
 

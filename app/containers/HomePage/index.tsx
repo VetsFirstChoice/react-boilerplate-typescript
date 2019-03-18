@@ -9,11 +9,9 @@ import * as React from 'react';
 // import SortTable from 'components/sortTable';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
-  public render() {
-    return (
-      <div>Home Page</div>
-    );
-  }
+export default function HomePage() {
+  return (
+    <div>Home Page</div>
+  );
 }
 
