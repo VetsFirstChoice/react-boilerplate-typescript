@@ -8,11 +8,6 @@ export const paymentDetailData = [
   ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
 ];
 
-export const shippingDetailData = [
-  ['Method:', 'Next Day'],
-  ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
-];
-
 export const data = [
   {
     key: 1,

@@ -10,7 +10,7 @@
  */
 
 import * as React from 'react';
-import Orders from 'containers/OrderPage/Orders';
+import Orders from 'containers/OrderPage/OrderHistory';
 import { Layout } from 'antd';
 
 export default function OrdersPage() {
