@@ -10,7 +10,7 @@
  */
 
 import * as React from 'react';
-import OrderDetail from 'containers/OrderPage/OrderDetail';
+import OrderDetail from 'containers/OrderPage/OrderDetailPage/OrderDetail';
 import { Layout } from 'antd';
 
 /* eslint-disable react/prefer-stateless-function */
@@ -22,4 +22,3 @@ export default function OrderDetailPage() {
     </Layout>
   );
 }
-

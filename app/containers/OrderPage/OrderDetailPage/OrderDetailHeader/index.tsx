@@ -9,7 +9,7 @@
 import { Steps, Row, Col, PageHeader, Tag } from 'antd';
 import 'antd/dist/antd.css';
 
-import { NoteDrawer } from '../../NoteDrawer';
+import { NoteDrawer } from '../../../NoteDrawer';
 
 import * as React from 'react';
 
