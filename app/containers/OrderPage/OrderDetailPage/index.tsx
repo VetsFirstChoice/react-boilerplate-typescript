@@ -14,6 +14,7 @@ import OrderDetailHeader from './OrderDetailHeader';
 import PracticeInformation from './PracticeInformation';
 import ClientInformation from './ClientInformation';
 import ShippingInformation from './ShippingInformation';
+import PaymentInformation from './PaymentInformation';
 
 
 export default function OrderDetail() {
@@ -27,6 +28,9 @@ export default function OrderDetail() {
         </Col>
         <Col className="gutter-row" span={6}>
           <PracticeInformation/>
+        </Col>
+        <Col className="gutter-row" span={6}>
+          <PaymentInformation/>
         </Col>
         <Col className="gutter-row" span={6}>
           <ShippingInformation/>
