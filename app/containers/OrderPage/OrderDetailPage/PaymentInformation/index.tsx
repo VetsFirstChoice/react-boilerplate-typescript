@@ -11,18 +11,18 @@ import 'antd/dist/antd.css';
 
 import * as React from 'react';
 
-import { practiceDetailData } from './constants';
+import { paymentDetailData } from './constants';
 
-export default function OrderDetailHeader() {
+export default function PaymentInformation() {
 
   return (
-    <Card
-      size="small"
-      title={<h4><Icon type="shop" theme="twoTone"/>&nbsp;Practice</h4>}
-      actions={[<Button><Icon type="team"/> Assist</Button>, <Button><Icon type="eye"/> View</Button>]}>
+    <Card size="small"
+          title={<h4><Icon type="credit-card" theme="twoTone"/>&nbsp;Payment</h4>}
+          actions={[<Button><Icon type="edit"/> Edit</Button>]}
+    >
       <List
         size="small"
-        dataSource={practiceDetailData}
+        dataSource={paymentDetailData}
         renderItem={item => (
           <List.Item>
             <Col span={8}>

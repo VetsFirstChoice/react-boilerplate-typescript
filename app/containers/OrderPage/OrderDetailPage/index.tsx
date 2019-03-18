@@ -1,24 +1,46 @@
 /*
- * OrderDetailPage
+ * orderDetails
  *
- * This is the order details page of our App, at the '/orders/params' route
+ * This is a the details of an order
  *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
  */
 
-import * as React from 'react';
-import OrderDetail from 'containers/OrderPage/OrderDetailPage/OrderDetail';
-import { Layout } from 'antd';
+// remove, use babel for antD css
+import { Col, Layout, Row } from 'antd';
+import 'antd/dist/antd.css';
 
-/* eslint-disable react/prefer-stateless-function */
-export default function OrderDetailPage() {
+import * as React from 'react';
+import OrderDetailHeader from './OrderDetailHeader';
+import PracticeInformation from './PracticeInformation';
+import ClientInformation from './ClientInformation';
+import ShippingInformation from './ShippingInformation';
+import PaymentInformation from './PaymentInformation';
+import ItemInformation from './ItemInformation';
+
+export default function OrderDetail() {
 
   return (
     <Layout>
-      <OrderDetail/>
+      <OrderDetailHeader/>
+      <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+        <Col className="gutter-row" span={6}>
+          <ClientInformation/>
+        </Col>
+        <Col className="gutter-row" span={6}>
+          <PracticeInformation/>
+        </Col>
+        <Col className="gutter-row" span={6}>
+          <PaymentInformation/>
+        </Col>
+        <Col className="gutter-row" span={6}>
+          <ShippingInformation/>
+        </Col>
+      </Row>
+      <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+        <Col className="gutter-row" span={24}>
+          <ItemInformation/>
+        </Col>
+      </Row>
     </Layout>
   );
 }

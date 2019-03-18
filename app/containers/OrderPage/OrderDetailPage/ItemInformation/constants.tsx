@@ -1,17 +1,6 @@
-import * as React from 'react';
 
 import { Col, Row, Steps, List } from 'antd';
-
-export const paymentDetailData = [
-  ['Type:', 'Client Pay'],
-  ['Method:', 'Visa - 1111 - 01/2021'],
-  ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
-];
-
-export const shippingDetailData = [
-  ['Method:', 'Next Day'],
-  ['Address:', '14233 N 50th Ln Glendale, AZ 85306'],
-];
+import * as React from 'react';
 
 export const data = [
   {
@@ -78,5 +67,3 @@ export const detailedList = (
     </Col>
   </Row>
 );
-
-
