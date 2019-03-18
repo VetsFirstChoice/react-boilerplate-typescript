@@ -12,11 +12,9 @@
 import * as React from 'react';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class ScriptPage extends React.PureComponent {
-  public render() {
-    return (
-      <div>Script</div>
-    );
-  }
+export default function ScriptPage() {
+  return (
+    <div>Script</div>
+  );
 }
 

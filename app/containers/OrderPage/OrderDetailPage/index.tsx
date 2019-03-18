@@ -10,18 +10,16 @@
  */
 
 import * as React from 'react';
-import OrderDetail from 'components/order-detail-component';
+import OrderDetail from 'containers/OrderPage/OrderDetail';
 import { Layout } from 'antd';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class OrderDetailPage extends React.PureComponent {
+export default function OrderDetailPage() {
 
-  public render() {
-    return (
-      <Layout>
-        <OrderDetail />
-      </Layout>
-    );
-  }
+  return (
+    <Layout>
+      <OrderDetail/>
+    </Layout>
+  );
 }
 

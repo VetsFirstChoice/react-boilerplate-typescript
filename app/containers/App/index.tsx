@@ -16,12 +16,12 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import Header from 'components/top-menu';
-import SideMenu from 'components/side-menu';
+import Header from 'containers/TopMenu';
+import SideMenu from 'containers/SideMenu';
 
 import HomePage from 'containers/HomePage/Loadable';
 import OrderPage from 'containers/OrderPage/Loadable';
-import OrderDetailPage from 'containers/OrderDetailPage/Loadable';
+import OrderDetailPage from 'containers/OrderPage/OrderDetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 export default function App() {
 
