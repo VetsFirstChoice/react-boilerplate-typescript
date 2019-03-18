@@ -12,7 +12,8 @@ import 'antd/dist/antd.css';
 import * as React from 'react';
 import OrderDetailHeader from './OrderDetailHeader';
 import PracticeInformation from './PracticeInformation';
-import OrderDetailClient from './ClientInformation';
+import ClientInformation from './ClientInformation';
+import ShippingInformation from './ShippingInformation';
 
 
 export default function OrderDetail() {
@@ -22,10 +23,13 @@ export default function OrderDetail() {
       <OrderDetailHeader/>
       <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
         <Col className="gutter-row" span={6}>
+          <ClientInformation/>
+        </Col>
+        <Col className="gutter-row" span={6}>
           <PracticeInformation/>
         </Col>
         <Col className="gutter-row" span={6}>
-          <OrderDetailClient/>
+          <ShippingInformation/>
         </Col>
       </Row>
     </Layout>
