@@ -6,12 +6,13 @@
  */
 
 // remove, use babel for antD css
-import { Layout, Row } from 'antd';
+import { Col, Layout, Row } from 'antd';
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
 import OrderDetailHeader from '../OrderDetailHeader';
 import PracticeInformation from '../OrderDetailPractice';
+import OrderDetailClient from '../OrderDetailClient';
 
 
 export default function OrderDetail() {
@@ -19,9 +20,14 @@ export default function OrderDetail() {
   return (
     <Layout>
       <OrderDetailHeader/>
-        <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+      <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+        <Col className="gutter-row" span={6}>
           <PracticeInformation/>
-        </Row>
+        </Col>
+        <Col className="gutter-row" span={6}>
+          <OrderDetailClient/>
+        </Col>
+      </Row>
     </Layout>
   );
 }
