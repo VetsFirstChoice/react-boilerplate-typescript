@@ -16,7 +16,6 @@ import ClientInformation from './ClientInformation';
 import ShippingInformation from './ShippingInformation';
 import PaymentInformation from './PaymentInformation';
 
-
 export default function OrderDetail() {
 
   return (
