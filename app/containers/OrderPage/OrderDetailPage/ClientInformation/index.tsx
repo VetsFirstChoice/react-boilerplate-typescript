@@ -13,7 +13,7 @@ import * as React from 'react';
 
 import { clientDetailData } from './constants';
 
-export default function OrderDetailClient() {
+export default function ClientInformation() {
 
   return (
     <Card

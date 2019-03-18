@@ -15,6 +15,7 @@ import PracticeInformation from './PracticeInformation';
 import ClientInformation from './ClientInformation';
 import ShippingInformation from './ShippingInformation';
 import PaymentInformation from './PaymentInformation';
+import ItemInformation from './ItemInformation';
 
 export default function OrderDetail() {
 
@@ -33,6 +34,11 @@ export default function OrderDetail() {
         </Col>
         <Col className="gutter-row" span={6}>
           <ShippingInformation/>
+        </Col>
+      </Row>
+      <Row gutter={16} align="top" style={{ marginTop: '20px' }}>
+        <Col className="gutter-row" span={24}>
+          <ItemInformation/>
         </Col>
       </Row>
     </Layout>

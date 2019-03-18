@@ -13,7 +13,7 @@ import * as React from 'react';
 
 import { shippingDetailData } from './constants';
 
-export default function OrderDetailHeader() {
+export default function ShippingInformation() {
 
   return (
     <Card size="small" title={<h4><Icon type="idcard" theme="twoTone"/>&nbsp;Shipping</h4>}

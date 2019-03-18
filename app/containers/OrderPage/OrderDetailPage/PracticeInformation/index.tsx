@@ -13,7 +13,7 @@ import * as React from 'react';
 
 import { practiceDetailData } from './constants';
 
-export default function OrderDetailHeader() {
+export default function PracticeInformation() {
 
   return (
     <Card

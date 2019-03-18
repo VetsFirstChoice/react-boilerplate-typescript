@@ -1,6 +1,6 @@
-import * as React from 'react';
 
 import { Col, Row, Steps, List } from 'antd';
+import * as React from 'react';
 
 export const data = [
   {
@@ -67,5 +67,3 @@ export const detailedList = (
     </Col>
   </Row>
 );
-
-

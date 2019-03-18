@@ -13,7 +13,7 @@ import * as React from 'react';
 
 import { paymentDetailData } from './constants';
 
-export default function OrderDetailHeader() {
+export default function PaymentInformation() {
 
   return (
     <Card size="small"
