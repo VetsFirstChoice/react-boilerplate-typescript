@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 
 import * as React from 'react';
 
-import { columns, data } from './constants';
+import { columns, data, detailedList } from './constants';
 
 export default function ItemInformation() {
 
@@ -35,6 +35,8 @@ export default function ItemInformation() {
         <Table
           columns={columns}
           dataSource={data}
+          expandedRowRender=
+            {() => detailedList}
         />
       </Card>
     </Card>
