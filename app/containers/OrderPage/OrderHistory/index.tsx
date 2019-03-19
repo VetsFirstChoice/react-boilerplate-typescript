@@ -61,13 +61,11 @@ export default function Orders() {
         <TabPane tab={<span><Icon type="search"/>Search</span>} key="1">
           {search}
         </TabPane>
-        <TabPane tab={<span><Icon type="eye"/>Views</span>} key="2">
+        <TabPane tab={<span><Icon type="bars"/>Queues</span>} key="2">
           {views}
         </TabPane>
-        <TabPane tab={<span><Icon type="profile"/>Queues</span>} key="3">
-          <Row style={{ background: '#fefefe', padding: '15px 0' }}>
+        <TabPane tab={<span><Icon type="profile"/>Quick Search</span>} key="3">
             {queues}
-          </Row>
         </TabPane>
       </Tabs>
       <Table columns={columns} dataSource={data} onChange={onChange}/>
