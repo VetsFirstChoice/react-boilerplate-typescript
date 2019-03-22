@@ -65,7 +65,7 @@ export default function Orders() {
           {views}
         </TabPane>
         <TabPane tab={<span><Icon type="profile"/>Quick Search</span>} key="3">
-            {queues}
+          {queues}
         </TabPane>
       </Tabs>
       <Table columns={columns} dataSource={data} onChange={onChange}/>

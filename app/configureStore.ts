@@ -22,9 +22,7 @@ export default function configureStore(initialState = {}, history) {
 
   const enhancers = [applyMiddleware(...middlewares)];
 
-  // tslint:disable-next-line:max-line-length
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
-  /* eslint-disable no-underscore-dangle, indent */
   const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
@@ -45,7 +43,6 @@ export default function configureStore(initialState = {}, history) {
   store.injectedSagas = {}; // Saga registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
-  /* istanbul ignore next */
   if (module['hot']) {
     module['hot'].accept('./reducers', () => {
       store.replaceReducer(createReducer(store.injectedReducers));

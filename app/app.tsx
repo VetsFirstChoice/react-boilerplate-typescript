@@ -9,7 +9,7 @@
 import '@babel/polyfill';
 
 // Import all the third party stuff
-import * as React from 'react';
+import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -20,7 +20,7 @@ import history from 'utils/history';
 import App from 'containers/App';
 
 // Import Language Provider
-import LanguageProvider from 'containers/LanguageProvider';
+// import LanguageProvider from 'containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
@@ -36,14 +36,53 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
+import moment from 'moment';
+import 'moment/locale/fr';
+import { addLocaleData, IntlProvider } from 'react-intl';
+import { LocaleProvider } from 'antd';
+import fr_FR from 'antd/lib/locale-provider/fr_FR';
+
+/* Import basic support for another locale if needed
+   ('en' is included by default) */
+const frLocaleData = require('react-intl/locale-data/fr');
+addLocaleData(frLocaleData);
+
+moment.locale('fr');
+
+// export function setLang() {
+//   // @ts-ignore
+//   lang = fr_FR;
+//
+//   console.log('here');
+// }
+
+// const i18nConfig = {
+//   locale: 'fr',
+//   messages: {
+//     'app.SideMenu.dashboard': 'Tableau de Bord',
+//   },
+// };
+
+const i18nConfig = {
+  locale: 'en',
+  messages: {
+    'app.SideMenu.dashboard': 'Dashboard',
+  },
+};
+
 const render = (messages, Component = App) => {
+
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <ConnectedRouter history={history}>
-          <Component />
-        </ConnectedRouter>
-      </LanguageProvider>
+      {/*<LanguageProvider messages={messages}>*/}
+      <LocaleProvider locale={fr_FR}>
+        <IntlProvider locale={i18nConfig.locale} messages={i18nConfig.messages}>
+          <ConnectedRouter history={history}>
+            <App/>
+          </ConnectedRouter>
+        </IntlProvider>
+      </LocaleProvider>
+      {/*</LanguageProvider>*/}
     </Provider>,
     MOUNT_NODE,
   );

@@ -12,6 +12,7 @@ import { Menu, Icon, Affix } from 'antd';
 import { Link } from 'react-router-dom';
 import Sider from 'antd/lib/layout/Sider';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 export default function SideMenu() {
 
@@ -51,7 +52,7 @@ export default function SideMenu() {
                     type="dashboard"
                     theme="twoTone"
                   />
-                  Dashboard
+                  <FormattedMessage id="app.SideMenu.dashboard"/>
                 </span>
             </Link>
           </Menu.Item>
