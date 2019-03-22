@@ -42,19 +42,10 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
 import fr_FR from 'antd/lib/locale-provider/fr_FR';
 
-/* Import basic support for another locale if needed
-   ('en' is included by default) */
 const frLocaleData = require('react-intl/locale-data/fr');
 addLocaleData(frLocaleData);
 
 moment.locale('fr');
-
-// export function setLang() {
-//   // @ts-ignore
-//   lang = fr_FR;
-//
-//   console.log('here');
-// }
 
 // const i18nConfig = {
 //   locale: 'fr',
