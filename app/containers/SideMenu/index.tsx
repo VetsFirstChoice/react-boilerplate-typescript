@@ -72,7 +72,7 @@ export default function SideMenu() {
                 theme="twoTone"
                 style={{ display: 'inline-flex' }}
               />
-              Orders
+              <FormattedMessage id="app.SideMenu.orders"/>
             </Link>
           </Menu.Item>
           {/* <Menu.Item key="4">

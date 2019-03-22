@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import { Table, Button, Row, Select, Input, DatePicker, Col, Tabs, Icon } from 'antd';
 import * as React from 'react';
 import { data, columns, views, queues } from './constants';
+import { FormattedMessage } from 'react-intl';
 
 export default function Orders() {
 
@@ -29,16 +30,36 @@ export default function Orders() {
       <Col span={8}>
         <InputGroup compact>
           <Select defaultValue="Option1">
-            <Option value="Option1">Order #</Option>
-            <Option value="Option2">Client Name</Option>
-            <Option value="Option3">Client Email</Option>
-            <Option value="Option4">DVM ID</Option>
-            <Option value="Option5">Invoice #</Option>
-            <Option value="Option6">Order ID</Option>
-            <Option value="Option7">Ship Order #</Option>
-            <Option value="Option8">SKU</Option>
-            <Option value="Option9">Tote #</Option>
-            <Option value="Option10">Tracking #</Option>
+            <Option value="Option1">
+              <FormattedMessage id="app.OrderHistory.orderNumber"/>
+            </Option>
+            <Option value="Option2">
+              <FormattedMessage id="app.OrderHistory.clientName"/>
+            </Option>
+            <Option value="Option3">
+              <FormattedMessage id="app.OrderHistory.clientEmail"/>
+            </Option>
+            <Option value="Option4">
+              <FormattedMessage id="app.OrderHistory.DVM_ID"/>
+            </Option>
+            <Option value="Option5">
+              <FormattedMessage id="app.OrderHistory.invoiceNumber"/>
+            </Option>
+            <Option value="Option6">
+              <FormattedMessage id="app.OrderHistory.orderID"/>
+            </Option>
+            <Option value="Option7">
+              <FormattedMessage id="app.OrderHistory.shipOrderNumber"/>
+            </Option>
+            <Option value="Option8">
+              <FormattedMessage id="app.OrderHistory.SKU"/>
+            </Option>
+            <Option value="Option9">
+              <FormattedMessage id="app.OrderHistory.toteNumber"/>
+            </Option>
+            <Option value="Option10">
+              <FormattedMessage id="app.OrderHistory.trackingNumber"/>
+            </Option>
           </Select>
           <Input style={{ width: '50%' }}/>
           <Button icon="search" shape="circle-outline" onClick={() => {
@@ -58,14 +79,26 @@ export default function Orders() {
   return (
     <div>
       <Tabs defaultActiveKey="1" style={{ height: '135px' }}>
-        <TabPane tab={<span><Icon type="search"/>Search</span>} key="1">
+        <TabPane tab={(
+          <span>
+            <Icon type="search"/>
+            <FormattedMessage id="app.OrderHistory.search"/>
+          </span>)} key="1">
           {search}
         </TabPane>
-        <TabPane tab={<span><Icon type="bars"/>Queues</span>} key="2">
-          {views}
-        </TabPane>
-        <TabPane tab={<span><Icon type="profile"/>Quick Search</span>} key="3">
+        <TabPane tab={(
+          <span>
+            <Icon type="bars"/>
+            <FormattedMessage id="app.OrderHistory.queues"/>
+          </span>)} key="2">
           {queues}
+        </TabPane>
+        <TabPane tab={(
+          <span>
+            <Icon type="profile"/>
+            <FormattedMessage id="app.OrderHistory.views"/>
+          </span>)} key="3">
+          {views}
         </TabPane>
       </Tabs>
       <Table columns={columns} dataSource={data} onChange={onChange}/>

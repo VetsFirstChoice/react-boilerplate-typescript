@@ -1,35 +1,36 @@
 import { Link } from 'react-router-dom';
 import { Badge, Button, Row } from 'antd';
 import * as React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 export const columns: any = [{
-  title: 'Order ID',
+  title: <FormattedMessage id="app.OrderHistory.orderID"/>,
   dataIndex: 'orderId',
   width: '100px',
   sorter: (a, b) => a.name.length - b.name.length,
   sortDirections: ['descend'],
 }, {
-  title: 'Order #',
+  title: <FormattedMessage id="app.OrderHistory.orderNumber"/>,
   dataIndex: 'orderNum',
   width: '100px',
   sorter: (a, b) => a.orderNum - b.orderNum,
   render: text => <Link to="orders/784776467">{text}</Link>,
 }, {
-  title: 'Order Date',
+  title: <FormattedMessage id="app.OrderHistory.orderDate"/>,
   dataIndex: 'orderDate',
   width: '100px',
   sorter: (a, b) => a.orderDate - b.orderDate,
 }, {
-  title: 'DVM ID',
+  title: <FormattedMessage id="app.OrderHistory.DVM_ID"/>,
   dataIndex: 'dvmId',
   width: '100px',
   sorter: (a, b) => a.dvmId - b.dvmId,
 }, {
-  title: 'Client',
+  title: <FormattedMessage id="app.OrderHistory.client"/>,
   dataIndex: 'client',
   width: '100px',
 }, {
-  title: 'Platform',
+  title: <FormattedMessage id="app.OrderHistory.platform"/>,
   dataIndex: 'platform',
   width: '100px',
   filters: [
@@ -68,7 +69,7 @@ export const columns: any = [{
     }],
   onFilter: (value, record) => record.platform.indexOf(value) === 0,
 }, {
-  title: 'Facility',
+  title: <FormattedMessage id="app.OrderHistory.facility"/>,
   dataIndex: 'facility',
   width: '100px',
   filters: [
@@ -107,7 +108,7 @@ export const columns: any = [{
     }],
   onFilter: (value, record) => record.facility.indexOf(value) === 0,
 }, {
-  title: 'Ship Method',
+  title: <FormattedMessage id="app.OrderHistory.shipMethod"/>,
   dataIndex: 'shipMethod',
   width: '100px',
   filters: [
@@ -140,7 +141,7 @@ export const columns: any = [{
     }],
   onFilter: (value, record) => record.shipMethod.indexOf(value) === 0,
 }, {
-  title: 'Order Status',
+  title: <FormattedMessage id="app.OrderHistory.orderStatus"/>,
   dataIndex: 'status',
   width: '150px',
   filters: [
@@ -180,7 +181,7 @@ export const columns: any = [{
   onFilter: (value, record) => record.status.indexOf(value) === 0,
   render: text => <Badge status="processing" text={text}/>,
 }, {
-  title: 'Order Total',
+  title: <FormattedMessage id="app.OrderHistory.orderTotal"/>,
   dataIndex: 'total',
   width: '100px',
   sorter: (a, b) => a.total - b.total,
