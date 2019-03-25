@@ -29,7 +29,7 @@ export default function Orders() {
     <Row style={{ background: '#fefefe', padding: '15px 0' }}>
       <Col span={8}>
         <InputGroup compact>
-          <Select defaultValue="Option1">
+          <Select defaultValue="Option1" style={{width: 150}}>
             <Option value="Option1">
               <FormattedMessage id="app.OrderHistory.orderNumber"/>
             </Option>

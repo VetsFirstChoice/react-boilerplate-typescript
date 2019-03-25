@@ -6,12 +6,13 @@
  */
 
 import * as React from 'react';
-// import SortTable from 'components/sortTable';
+import { FormattedMessage } from 'react-intl';
 
-/* eslint-disable react/prefer-stateless-function */
 export default function HomePage() {
   return (
-    <div>Home Page</div>
+    <div>
+      <FormattedMessage id="app.HomePage"/>
+    </div>
   );
 }
 

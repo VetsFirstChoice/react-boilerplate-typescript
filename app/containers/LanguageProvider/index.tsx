@@ -7,12 +7,14 @@
  */
 
 import * as React from 'react';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { IntlProvider } from 'react-intl';
 
 import { makeSelectLocale } from './selectors';
+import { LocaleProvider } from 'antd';
+import fr_FR from 'antd/lib/locale-provider/fr_FR';
+import en_US from 'antd/lib/locale-provider/en_US';
 
 export interface ILanguageProviderProps {
   locale?: string;
@@ -21,6 +23,13 @@ export interface ILanguageProviderProps {
 }
 
 export class LanguageProvider extends React.PureComponent<ILanguageProviderProps, {}> {
+  public getLocale() {
+    if (this.props.locale === 'fr') {
+      return fr_FR;
+    }
+    return en_US;
+  }
+
   public render() {
     return (
       <IntlProvider
@@ -28,7 +37,9 @@ export class LanguageProvider extends React.PureComponent<ILanguageProviderProps
         key={this.props.locale}
         messages={this.props.messages[this.props.locale as string]}
       >
-        {React.Children.only(this.props.children)}
+        <LocaleProvider locale={this.getLocale()}>
+          {React.Children.only(this.props.children)}
+        </LocaleProvider>
       </IntlProvider>
     );
   }
@@ -43,6 +54,7 @@ function mapDispatchToProps(dispatch) {
     dispatch: dispatch,
   };
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
