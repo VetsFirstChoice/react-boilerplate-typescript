@@ -21,5 +21,12 @@
   "app.OrderHistory.shipMethod": "Ship Method",
   "app.OrderHistory.orderStatus": "Order Status",
   "app.OrderHistory.orderTotal": "Order Total",
-  "app.HomePage": "Language: EN"
+  "app.HomePage": "Language: EN",
+  "app.OrderDetails.rushOrder": "Rush Order",
+  "app.OrderDetails.platformType": "Platform Type: Vets First Choice",
+  "app.OrderDetails.petOwner": "Order Origin: Pet Owner",
+  "app.OrderDetails.orderMethod": "Order Method: Web",
+  "app.OrderDetails.submittedBy": "Submitted By: Client",
+  "app.OrderDetails.type": "Type: Patient Specific",
+  "app.OrderDetails.ClientInformation.name": "Name"
 }

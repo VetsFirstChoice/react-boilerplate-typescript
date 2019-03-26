@@ -21,5 +21,12 @@
   "app.OrderHistory.shipMethod": "Méthode d Envoi",
   "app.OrderHistory.orderStatus": "Statut de la Commande",
   "app.OrderHistory.orderTotal": "Total de la Commande",
-  "app.HomePage": "Language: FR"
+  "app.HomePage": "Language: FR",
+  "app.OrderDetails.rushOrder": "Commande Urgente",
+  "app.OrderDetails.platformType": "Type de Plate-forme: Vets First Choice",
+  "app.OrderDetails.petOwner": "Propriétaire d'animaux",
+  "app.OrderDetails.orderMethod": "Procédure d'ordre",
+  "app.OrderDetails.submittedBy": "Soumis Par: Client",
+  "app.OrderDetails.type": "Type: Spécifique au Patient",
+  "app.OrderDetails.ClientInformation.name": "Nom"
 }

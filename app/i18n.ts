@@ -10,6 +10,7 @@
 const addLocaleData = require('react-intl').addLocaleData;
 const enLocaleData = require('react-intl/locale-data/en');
 const frLocaleData = require('react-intl/locale-data/fr');
+import detectBrowserLanguage from 'detect-browser-language';
 
 const enTranslationMessages = require('./translations/en.json');
 const frTranslationMessages = require('./translations/fr.json');
@@ -17,7 +18,15 @@ const frTranslationMessages = require('./translations/fr.json');
 addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
 
-export const DEFAULT_LOCALE = 'en';
+export const DEFAULT_LOCALE = getDefaultLocale();
+
+function getDefaultLocale() {
+  const browserLocaleMap = {
+    'en-US': 'en',
+    'fr-FR': 'fr',
+  };
+  return browserLocaleMap[detectBrowserLanguage()];
+}
 
 export const appLocales = [
   'en',

@@ -44,7 +44,9 @@ export default function SideMenu() {
           />
         </Logo>
         {/* Set default key to store value */}
-        <Menu mode="inline" defaultSelectedKeys={['1']}>
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
             <Link to="/">
                 <span>

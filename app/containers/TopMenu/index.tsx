@@ -32,7 +32,12 @@ export function TopMenu({ changeLocale, locale }) {
   return (
     <Affix>
       <Header style={{ background: '#fff' }}>
-        <Select defaultValue={locale} onChange={changeLocale}>
+        <Select defaultValue={locale}
+                onChange={changeLocale}
+                style={{
+                  float: 'right',
+                  marginTop: 10,
+                }}>
           <Option value={'en'}>English</Option>
           <Option value={'fr'}>French</Option>
         </Select>
