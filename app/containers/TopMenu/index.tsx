@@ -36,10 +36,11 @@ export function TopMenu({ changeLocale, locale }) {
                 onChange={changeLocale}
                 style={{
                   float: 'right',
-                  marginTop: 10,
+                  marginTop: 15,
                 }}>
           <Option value={'en'}>English</Option>
           <Option value={'fr'}>French</Option>
+          <Option value={'zh'}>Chinese</Option>
         </Select>
       </Header>
     </Affix>

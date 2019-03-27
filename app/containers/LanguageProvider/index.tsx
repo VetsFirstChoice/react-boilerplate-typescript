@@ -15,6 +15,7 @@ import { makeSelectLocale } from './selectors';
 import { LocaleProvider } from 'antd';
 import fr_FR from 'antd/lib/locale-provider/fr_FR';
 import en_US from 'antd/lib/locale-provider/en_US';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
 
 export interface ILanguageProviderProps {
   locale?: string;
@@ -23,9 +24,13 @@ export interface ILanguageProviderProps {
 }
 
 export class LanguageProvider extends React.PureComponent<ILanguageProviderProps, {}> {
+
   public getLocale() {
     if (this.props.locale === 'fr') {
       return fr_FR;
+    }
+    if (this.props.locale === 'zh') {
+      return zh_CN;
     }
     return en_US;
   }

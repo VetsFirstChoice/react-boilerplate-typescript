@@ -24,7 +24,7 @@ import LanguageProvider from './containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
+import 'file-loader?name=.htaccess!./.htaccess';
 
 import configureStore from './configureStore';
 
@@ -37,7 +37,6 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 const render = (messages, Component = App) => {
-
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
@@ -66,7 +65,7 @@ if (!(window as any).Intl) {
     .then(() =>
       Promise.all([
         import('intl/locale-data/jsonp/en.js'),
-        import('intl/locale-data/jsonp/de.js'),
+        import('intl/locale-data/jsonp/fr.js'),
       ]),
     )
     .then(() => render(translationMessages))

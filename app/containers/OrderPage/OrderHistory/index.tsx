@@ -16,6 +16,7 @@ export default function Orders() {
 
   const InputGroup = Input.Group;
   const Option = Select.Option;
+  const { RangePicker } = DatePicker;
   const dateFormat = 'DD/MM/YYYY';
   const TabPane = Tabs.TabPane;
 
@@ -23,13 +24,12 @@ export default function Orders() {
     console.log('params', pagination, filters, sorter);
   }
 
-  const { RangePicker } = DatePicker;
 
   const search = (
     <Row style={{ background: '#fefefe', padding: '15px 0' }}>
       <Col span={8}>
         <InputGroup compact>
-          <Select defaultValue="Option1" style={{width: 150}}>
+          <Select defaultValue="Option1" style={{ width: 150 }}>
             <Option value="Option1">
               <FormattedMessage id="app.OrderHistory.orderNumber"/>
             </Option>

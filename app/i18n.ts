@@ -7,31 +7,45 @@
  *   script `extract-intl`, and must use CommonJS module syntax
  *   You CANNOT use import/export in this file.
  */
+import detectBrowserLanguage from 'detect-browser-language';
+import moment from 'moment';
+import { enDateFormat, frDateFormat } from './translations/dates';
+
 const addLocaleData = require('react-intl').addLocaleData;
 const enLocaleData = require('react-intl/locale-data/en');
 const frLocaleData = require('react-intl/locale-data/fr');
-import detectBrowserLanguage from 'detect-browser-language';
+const zhLocaleData = require('react-intl/locale-data/zh');
 
 const enTranslationMessages = require('./translations/en.json');
 const frTranslationMessages = require('./translations/fr.json');
+const zhTranslationMessages = require('./translations/zh.json');
 
+export let DEFAULT_LOCALE = getDefaultBrowserLocale();
+
+// Load all locale data here.
 addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
+addLocaleData(zhLocaleData);
 
-export const DEFAULT_LOCALE = getDefaultLocale();
-
-function getDefaultLocale() {
-  const browserLocaleMap = {
-    'en-US': 'en',
-    'fr-FR': 'fr',
-  };
-  return browserLocaleMap[detectBrowserLanguage()];
-}
+// moment.locale(DEFAULT_LOCALE);
+moment.updateLocale('fr', frDateFormat);
+moment.updateLocale('en', enDateFormat);
+moment.locale(DEFAULT_LOCALE);
 
 export const appLocales = [
   'en',
   'fr',
+  'zh',
 ];
+
+function getDefaultBrowserLocale() {
+  const browserLocaleMap = {
+    'en-US': 'en',
+    'fr-FR': 'fr',
+    'zh-ZH': 'zh',
+  };
+  return browserLocaleMap[detectBrowserLanguage()];
+}
 
 export const formatTranslationMessages = (locale, messages) => {
   const defaultFormattedMessages =
@@ -51,4 +65,5 @@ export const formatTranslationMessages = (locale, messages) => {
 export const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
   fr: formatTranslationMessages('fr', frTranslationMessages),
+  zh: formatTranslationMessages('zh', zhTranslationMessages),
 };

@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Badge, Button, Row } from 'antd';
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
+import moment from 'moment';
+import { DEFAULT_LOCALE } from '../../../i18n';
+import { enDateFormat, frDateFormat } from '../../../translations/dates';
 
 export const columns: any = [{
   title: <FormattedMessage id="app.OrderHistory.orderID"/>,
@@ -187,11 +190,15 @@ export const columns: any = [{
   sorter: (a, b) => a.total - b.total,
 }];
 
+moment.updateLocale('fr', frDateFormat);
+moment.updateLocale('en', enDateFormat);
+moment.locale(DEFAULT_LOCALE);
+
 export const data = [{
   key: '1',
   orderId: '5494685',
   orderNum: '56995',
-  orderDate: '04/15/2017',
+  orderDate: moment(1459832991883).format('L'),
   dvmId: '6584',
   client: 'Cecilia Pozo',
   platform: 'RoadRunner',
@@ -457,28 +464,28 @@ export const views = (
   <Row type="flex" justify="space-around" align="middle"
        style={{ background: '#fefefe', padding: '15px 0' }}>
     <Badge count={2} overflowCount={10}>
-      <Button type="primary" ghost >CC Auth Declined</Button>
+      <Button type="primary" ghost>CC Auth Declined</Button>
     </Badge>
     <Badge count={16} overflowCount={10}>
-      <Button type="danger" ghost >PV1 Exceptions</Button>
+      <Button type="danger" ghost>PV1 Exceptions</Button>
     </Badge>
     <Badge count={10} overflowCount={10}>
-      <Button type="danger" ghost >Inventory Exceptions</Button>
+      <Button type="danger" ghost>Inventory Exceptions</Button>
     </Badge>
     <Badge count={3} overflowCount={10}>
-      <Button type="primary" ghost >Call Center Exceptions</Button>
+      <Button type="primary" ghost>Call Center Exceptions</Button>
     </Badge>
     <Badge count={8} overflowCount={10}>
-      <Button type="danger" ghost >Tech Exceptions</Button>
+      <Button type="danger" ghost>Tech Exceptions</Button>
     </Badge>
     <Badge count={4} overflowCount={10}>
-      <Button type="primary" ghost >Fraud Risk</Button>
+      <Button type="primary" ghost>Fraud Risk</Button>
     </Badge>
     <Badge count={1} overflowCount={10}>
-      <Button type="primary" ghost >Ads Exceptions</Button>
+      <Button type="primary" ghost>Ads Exceptions</Button>
     </Badge>
     <Badge count={0} overflowCount={10}>
-      <Button type="primary" ghost >Autoship Exceptions</Button>
+      <Button type="primary" ghost>Autoship Exceptions</Button>
     </Badge>
     <br/>
   </Row>
@@ -487,13 +494,13 @@ export const views = (
 export const queues = (
   <Row type="flex" justify="space-around" align="middle"
        style={{ background: '#fefefe', padding: '15px 0' }}>
-      <Button>All Open</Button>
-      <Button>My Orders</Button>
-      <Button>Fulfillment Processing</Button>
-      <Button>Inventory In Motion</Button>
-      <Button>Purina Open Orders</Button>
-      <Button>Royal Canin Open Orders</Button>
-      <Button>Hills Open Orders</Button>
+    <Button>All Open</Button>
+    <Button>My Orders</Button>
+    <Button>Fulfillment Processing</Button>
+    <Button>Inventory In Motion</Button>
+    <Button>Purina Open Orders</Button>
+    <Button>Royal Canin Open Orders</Button>
+    <Button>Hills Open Orders</Button>
     <br/>
   </Row>
 );

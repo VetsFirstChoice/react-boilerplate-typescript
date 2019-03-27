@@ -10,15 +10,14 @@
  */
 
 import * as React from 'react';
-import Orders from 'containers/OrderPage/OrderHistory';
+import OrderHistory from 'containers/OrderPage/OrderHistory';
 import { Layout } from 'antd';
 
 export default function OrdersPage() {
 
   return (
     <Layout style={{ background: '#fff', padding: 24 }}>
-      <Orders/>
+      <OrderHistory/>
     </Layout>
   );
 }
-
