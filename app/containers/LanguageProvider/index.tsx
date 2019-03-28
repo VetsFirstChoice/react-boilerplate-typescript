@@ -26,16 +26,18 @@ export interface ILanguageProviderProps {
 export class LanguageProvider extends React.PureComponent<ILanguageProviderProps, {}> {
 
   public getLocale() {
-    if (this.props.locale === 'fr') {
-      return fr_FR;
+    switch (this.props.locale) {
+      case 'fr':
+        return fr_FR;
+      case 'zh':
+        return zh_CN;
+      default:
+        return en_US;
     }
-    if (this.props.locale === 'zh') {
-      return zh_CN;
-    }
-    return en_US;
   }
 
   public render() {
+
     return (
       <IntlProvider
         locale={this.props.locale}

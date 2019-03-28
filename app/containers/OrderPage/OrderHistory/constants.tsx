@@ -3,202 +3,207 @@ import { Badge, Button, Row } from 'antd';
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
-import { DEFAULT_LOCALE } from '../../../i18n';
-import { enDateFormat, frDateFormat } from '../../../translations/dates';
 
-export const columns: any = [{
-  title: <FormattedMessage id="app.OrderHistory.orderID"/>,
-  dataIndex: 'orderId',
-  width: '100px',
-  sorter: (a, b) => a.name.length - b.name.length,
-  sortDirections: ['descend'],
-}, {
-  title: <FormattedMessage id="app.OrderHistory.orderNumber"/>,
-  dataIndex: 'orderNum',
-  width: '100px',
-  sorter: (a, b) => a.orderNum - b.orderNum,
-  render: text => <Link to="orders/784776467">{text}</Link>,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.orderDate"/>,
-  dataIndex: 'orderDate',
-  width: '100px',
-  sorter: (a, b) => a.orderDate - b.orderDate,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.DVM_ID"/>,
-  dataIndex: 'dvmId',
-  width: '100px',
-  sorter: (a, b) => a.dvmId - b.dvmId,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.client"/>,
-  dataIndex: 'client',
-  width: '100px',
-}, {
-  title: <FormattedMessage id="app.OrderHistory.platform"/>,
-  dataIndex: 'platform',
-  width: '100px',
-  filters: [
-    {
-      text: 'Recent',
-      value: 'recentPlatforms',
-      children: [{
-        text: 'Vets First Choice',
-        value: 'Vets First Choice',
-      }],
-    }, {
-      text: 'All',
-      value: 'allPlatforms',
-      children: [{
-        text: 'Atlas',
-        value: 'Atlas',
-      }, {
-        text: 'MyVetsMeds',
-        value: 'MyVetsMeds',
-      }, {
-        text: 'PTP',
-        value: 'PTP',
-      }, {
-        text: 'RoadRunner',
-        value: 'RoadRunner',
-      }, {
-        text: 'Vets First Choice',
-        value: 'Vets First Choice',
-      }, {
-        text: 'VIP Petcare',
-        value: 'VIP Petcare',
-      }, {
-        text: 'VPA',
-        value: 'VPA',
-      }],
-    }],
-  onFilter: (value, record) => record.platform.indexOf(value) === 0,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.facility"/>,
-  dataIndex: 'facility',
-  width: '100px',
-  filters: [
-    {
-      text: 'Recent',
-      value: 'Recent Facilities',
-      children: [{
-        text: 'VFC Warehouse',
-        value: 'VFC Warehouse',
-      }],
-    }, {
-      text: 'All',
-      value: 'All Facilities',
-      children: [{
-        text: 'Atlas Facility',
-        value: 'Atlas Facility',
-      }, {
-        text: 'Greer NC Facility',
-        value: 'Greer NC Facility',
-      }, {
-        text: 'HILLS CA Facility',
-        value: 'HILLS CA Facility',
-      }, {
-        text: 'HILLS NY Facility',
-        value: 'HILLS NY Facility',
-      }, {
-        text: 'HILLS TX Facility',
-        value: 'HILLS TX Facility',
-      }, {
-        text: 'Netherlands Facility',
-        value: 'Netherlands Facility',
-      }, {
-        text: 'Portland Facility',
-        value: 'Portland Facility',
-      }],
-    }],
-  onFilter: (value, record) => record.facility.indexOf(value) === 0,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.shipMethod"/>,
-  dataIndex: 'shipMethod',
-  width: '100px',
-  filters: [
-    {
-      text: 'Recent',
-      value: 'Recent Ship Methods',
-      children: [{
-        text: 'Standard',
-        value: 'Standard',
-      }],
-    }, {
-      text: 'All',
-      value: 'All Ship Methods',
-      children: [{
-        text: '2nd Day',
-        value: '2nd Day',
-      }, {
-        text: 'Ground',
-        value: 'Ground',
-      }, {
-        text: 'Next Day',
-        value: 'Next Day',
-      }, {
-        text: 'Standard',
-        value: 'Standard',
-      }, {
-        text: 'USPS First Class',
-        value: 'USPS First Class',
-      }],
-    }],
-  onFilter: (value, record) => record.shipMethod.indexOf(value) === 0,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.orderStatus"/>,
-  dataIndex: 'status',
-  width: '150px',
-  filters: [
-    {
-      text: 'Common Statuses',
-      value: 'Common Statuses',
-      children: [{
-        text: 'Fulfillment Processing',
-        value: 'Fulfillment Processing',
-      }, {
-        text: 'Canceled',
-        value: 'Canceled',
-      }, {
-        text: 'CC Auth Declined',
-        value: 'CC Auth Declined',
-      }],
-    }, {
-      text: 'All',
-      value: 'allStatuses',
-      children: [{
-        text: 'Canceled',
-        value: 'Canceled',
-      }, {
-        text: 'Fulfillment Ready',
-        value: 'Fulfillment Ready',
-      }, {
-        text: 'Pending Authorization',
-        value: 'Pending Authorization',
-      }, {
-        text: 'Pharmacy',
-        value: 'Pharmacy',
-      }, {
-        text: 'Sent for Fulfillment',
-        value: 'Sent for Fulfillment',
-      }],
-    }],
-  onFilter: (value, record) => record.status.indexOf(value) === 0,
-  render: text => <Badge status="processing" text={text}/>,
-}, {
-  title: <FormattedMessage id="app.OrderHistory.orderTotal"/>,
-  dataIndex: 'total',
-  width: '100px',
-  sorter: (a, b) => a.total - b.total,
-}];
+export const columns: any = (locale) => {
 
-moment.updateLocale('fr', frDateFormat);
-moment.updateLocale('en', enDateFormat);
-moment.locale(DEFAULT_LOCALE);
+  return [{
+    title: <FormattedMessage id="app.OrderHistory.orderID"/>,
+    dataIndex: 'orderId',
+    width: '100px',
+    sorter: (a, b) => a.name.length - b.name.length,
+    sortDirections: ['descend'],
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.orderNumber"/>,
+    dataIndex: 'orderNum',
+    width: '100px',
+    sorter: (a, b) => a.orderNum - b.orderNum,
+    render: text => <Link to="orders/784776467">{text}</Link>,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.orderDate"/>,
+    dataIndex: 'orderDate',
+    width: '100px',
+    sorter: (a, b) => a.orderDate - b.orderDate,
+    render: (text) => {
+      moment.locale(locale);
+      return (
+        <div>
+          {moment(text).format('L')}
+        </div>
+      );
+    },
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.DVM_ID"/>,
+    dataIndex: 'dvmId',
+    width: '100px',
+    sorter: (a, b) => a.dvmId - b.dvmId,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.client"/>,
+    dataIndex: 'client',
+    width: '100px',
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.platform"/>,
+    dataIndex: 'platform',
+    width: '100px',
+    filters: [
+      {
+        text: 'Recent',
+        value: 'recentPlatforms',
+        children: [{
+          text: 'Vets First Choice',
+          value: 'Vets First Choice',
+        }],
+      }, {
+        text: 'All',
+        value: 'allPlatforms',
+        children: [{
+          text: 'Atlas',
+          value: 'Atlas',
+        }, {
+          text: 'MyVetsMeds',
+          value: 'MyVetsMeds',
+        }, {
+          text: 'PTP',
+          value: 'PTP',
+        }, {
+          text: 'RoadRunner',
+          value: 'RoadRunner',
+        }, {
+          text: 'Vets First Choice',
+          value: 'Vets First Choice',
+        }, {
+          text: 'VIP Petcare',
+          value: 'VIP Petcare',
+        }, {
+          text: 'VPA',
+          value: 'VPA',
+        }],
+      }],
+    onFilter: (value, record) => record.platform.indexOf(value) === 0,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.facility"/>,
+    dataIndex: 'facility',
+    width: '100px',
+    filters: [
+      {
+        text: 'Recent',
+        value: 'Recent Facilities',
+        children: [{
+          text: 'VFC Warehouse',
+          value: 'VFC Warehouse',
+        }],
+      }, {
+        text: 'All',
+        value: 'All Facilities',
+        children: [{
+          text: 'Atlas Facility',
+          value: 'Atlas Facility',
+        }, {
+          text: 'Greer NC Facility',
+          value: 'Greer NC Facility',
+        }, {
+          text: 'HILLS CA Facility',
+          value: 'HILLS CA Facility',
+        }, {
+          text: 'HILLS NY Facility',
+          value: 'HILLS NY Facility',
+        }, {
+          text: 'HILLS TX Facility',
+          value: 'HILLS TX Facility',
+        }, {
+          text: 'Netherlands Facility',
+          value: 'Netherlands Facility',
+        }, {
+          text: 'Portland Facility',
+          value: 'Portland Facility',
+        }],
+      }],
+    onFilter: (value, record) => record.facility.indexOf(value) === 0,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.shipMethod"/>,
+    dataIndex: 'shipMethod',
+    width: '100px',
+    filters: [
+      {
+        text: 'Recent',
+        value: 'Recent Ship Methods',
+        children: [{
+          text: 'Standard',
+          value: 'Standard',
+        }],
+      }, {
+        text: 'All',
+        value: 'All Ship Methods',
+        children: [{
+          text: '2nd Day',
+          value: '2nd Day',
+        }, {
+          text: 'Ground',
+          value: 'Ground',
+        }, {
+          text: 'Next Day',
+          value: 'Next Day',
+        }, {
+          text: 'Standard',
+          value: 'Standard',
+        }, {
+          text: 'USPS First Class',
+          value: 'USPS First Class',
+        }],
+      }],
+    onFilter: (value, record) => record.shipMethod.indexOf(value) === 0,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.orderStatus"/>,
+    dataIndex: 'status',
+    width: '150px',
+    filters: [
+      {
+        text: 'Common Statuses',
+        value: 'Common Statuses',
+        children: [{
+          text: 'Fulfillment Processing',
+          value: 'Fulfillment Processing',
+        }, {
+          text: 'Canceled',
+          value: 'Canceled',
+        }, {
+          text: 'CC Auth Declined',
+          value: 'CC Auth Declined',
+        }],
+      }, {
+        text: 'All',
+        value: 'allStatuses',
+        children: [{
+          text: 'Canceled',
+          value: 'Canceled',
+        }, {
+          text: 'Fulfillment Ready',
+          value: 'Fulfillment Ready',
+        }, {
+          text: 'Pending Authorization',
+          value: 'Pending Authorization',
+        }, {
+          text: 'Pharmacy',
+          value: 'Pharmacy',
+        }, {
+          text: 'Sent for Fulfillment',
+          value: 'Sent for Fulfillment',
+        }],
+      }],
+    onFilter: (value, record) => record.status.indexOf(value) === 0,
+    render: text => <Badge status="processing" text={text}/>,
+  }, {
+    title: <FormattedMessage id="app.OrderHistory.orderTotal"/>,
+    dataIndex: 'total',
+    width: '100px',
+    sorter: (a, b) => a.total - b.total,
+  }];
+};
 
 export const data = [{
   key: '1',
   orderId: '5494685',
   orderNum: '56995',
-  orderDate: moment(1459832991883).format('L'),
+  orderDate: 1459832991883,
   dvmId: '6584',
   client: 'Cecilia Pozo',
   platform: 'RoadRunner',
@@ -210,7 +215,7 @@ export const data = [{
   key: '2',
   orderId: '1525884',
   orderNum: '21886',
-  orderDate: '12/31/2019',
+  orderDate: 1459832991883,
   dvmId: '9999',
   client: 'Russ Cargill',
   platform: 'VIP Petcare',
@@ -222,7 +227,7 @@ export const data = [{
   key: '3',
   orderId: '1326599',
   orderNum: '25515',
-  orderDate: '01/23/2018',
+  orderDate: 1459832991883,
   dvmId: '4659',
   client: 'Jeffory Lebowski',
   platform: 'VPA',
@@ -234,7 +239,7 @@ export const data = [{
   key: '5',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -246,7 +251,7 @@ export const data = [{
   key: '6',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -258,7 +263,7 @@ export const data = [{
   key: '7',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -270,7 +275,7 @@ export const data = [{
   key: '8',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -282,7 +287,7 @@ export const data = [{
   key: '9',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -294,7 +299,7 @@ export const data = [{
   key: '10',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -306,7 +311,7 @@ export const data = [{
   key: '11',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -318,7 +323,7 @@ export const data = [{
   key: '12',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -330,7 +335,7 @@ export const data = [{
   key: '13',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -342,7 +347,7 @@ export const data = [{
   key: '14',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -354,7 +359,7 @@ export const data = [{
   key: '15',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -366,7 +371,7 @@ export const data = [{
   key: '16',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -378,7 +383,7 @@ export const data = [{
   key: '17',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -390,7 +395,7 @@ export const data = [{
   key: '18',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -402,7 +407,7 @@ export const data = [{
   key: '19',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -414,7 +419,7 @@ export const data = [{
   key: '20',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -426,7 +431,7 @@ export const data = [{
   key: '21',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -438,7 +443,7 @@ export const data = [{
   key: '22',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',
@@ -450,7 +455,7 @@ export const data = [{
   key: '23',
   orderId: '2544152',
   orderNum: '45985',
-  orderDate: '06/30/2018',
+  orderDate: 1459832991883,
   dvmId: '0418',
   client: 'Emily Baker',
   platform: 'Vets First Choice',

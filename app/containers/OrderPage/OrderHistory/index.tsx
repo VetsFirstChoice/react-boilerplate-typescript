@@ -11,8 +11,15 @@ import { Table, Button, Row, Select, Input, DatePicker, Col, Tabs, Icon } from '
 import * as React from 'react';
 import { data, columns, views, queues } from './constants';
 import { FormattedMessage } from 'react-intl';
+import { createSelector } from 'reselect';
+import { makeSelectLocale } from '../../LanguageProvider/selectors';
+import { connect } from 'react-redux';
 
-export default function Orders() {
+const mapStateToProps = createSelector(makeSelectLocale(), locale => ({
+  locale: locale,
+}));
+
+export const Orders = ({ locale }) => {
 
   const InputGroup = Input.Group;
   const Option = Select.Option;
@@ -101,7 +108,11 @@ export default function Orders() {
           {views}
         </TabPane>
       </Tabs>
-      <Table columns={columns} dataSource={data} onChange={onChange}/>
+      <Table columns={columns(locale)} dataSource={data} onChange={onChange}/>
     </div>
   );
-}
+};
+
+export default connect(
+  mapStateToProps,
+)(Orders);

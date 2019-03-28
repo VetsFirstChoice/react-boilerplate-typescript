@@ -21,7 +21,7 @@ const frTranslationMessages = require('./translations/fr.json');
 const zhTranslationMessages = require('./translations/zh.json');
 
 export let DEFAULT_LOCALE = getDefaultBrowserLocale();
-
+export let CURRENT_LOCALE = DEFAULT_LOCALE;
 // Load all locale data here.
 addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
@@ -30,7 +30,6 @@ addLocaleData(zhLocaleData);
 // moment.locale(DEFAULT_LOCALE);
 moment.updateLocale('fr', frDateFormat);
 moment.updateLocale('en', enDateFormat);
-moment.locale(DEFAULT_LOCALE);
 
 export const appLocales = [
   'en',
