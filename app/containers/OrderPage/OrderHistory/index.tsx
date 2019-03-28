@@ -31,7 +31,6 @@ export const Orders = ({ locale }) => {
     console.log('params', pagination, filters, sorter);
   }
 
-
   const search = (
     <Row style={{ background: '#fefefe', padding: '15px 0' }}>
       <Col span={8}>

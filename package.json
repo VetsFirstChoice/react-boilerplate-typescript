@@ -86,6 +86,7 @@
     "lodash": "4.17.11",
     "minimist": "1.2.0",
     "moment": "^2.24.0",
+    "numeral": "^2.0.6",
     "prop-types": "15.6.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",

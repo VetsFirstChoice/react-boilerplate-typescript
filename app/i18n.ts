@@ -9,7 +9,9 @@
  */
 import detectBrowserLanguage from 'detect-browser-language';
 import moment from 'moment';
-import { enDateFormat, frDateFormat } from './translations/dates';
+import numeral from 'numeral';
+import { enCurrencyLocale, frCurrencyLocale, zhCurrencyLocale } from './translations/currency';
+import { frDateFormat, zhDateFormat } from './translations/datetime';
 
 const addLocaleData = require('react-intl').addLocaleData;
 const enLocaleData = require('react-intl/locale-data/en');
@@ -20,22 +22,28 @@ const enTranslationMessages = require('./translations/en.json');
 const frTranslationMessages = require('./translations/fr.json');
 const zhTranslationMessages = require('./translations/zh.json');
 
-export let DEFAULT_LOCALE = getDefaultBrowserLocale();
-export let CURRENT_LOCALE = DEFAULT_LOCALE;
-// Load all locale data here.
-addLocaleData(enLocaleData);
-addLocaleData(frLocaleData);
-addLocaleData(zhLocaleData);
-
-// moment.locale(DEFAULT_LOCALE);
-moment.updateLocale('fr', frDateFormat);
-moment.updateLocale('en', enDateFormat);
-
+// App Locale Global Identifiers
+export const DEFAULT_LOCALE = getDefaultBrowserLocale();
 export const appLocales = [
   'en',
   'fr',
   'zh',
 ];
+
+// Load React-Intl Locale Data
+addLocaleData(enLocaleData);
+addLocaleData(frLocaleData);
+addLocaleData(zhLocaleData);
+
+// Load Moment Date and Time Locale Data
+moment.updateLocale('fr', frDateFormat);
+moment.updateLocale('zh', zhDateFormat);
+
+// Load Numeral Currency Locale Data
+numeral.register('locale', 'en-US', enCurrencyLocale);
+numeral.register('locale', 'fr', frCurrencyLocale);
+numeral.register('locale', 'zh', zhCurrencyLocale);
+
 
 function getDefaultBrowserLocale() {
   const browserLocaleMap = {
@@ -64,5 +72,5 @@ export const formatTranslationMessages = (locale, messages) => {
 export const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
   fr: formatTranslationMessages('fr', frTranslationMessages),
-  zh: formatTranslationMessages('zh', zhTranslationMessages),
+  zh: formatTranslationMessages('fr', zhTranslationMessages),
 };

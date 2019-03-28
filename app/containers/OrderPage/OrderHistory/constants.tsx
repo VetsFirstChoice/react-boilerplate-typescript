@@ -3,6 +3,7 @@ import { Badge, Button, Row } from 'antd';
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
+import numeral from 'numeral';
 
 export const columns: any = (locale) => {
 
@@ -196,6 +197,14 @@ export const columns: any = (locale) => {
     dataIndex: 'total',
     width: '100px',
     sorter: (a, b) => a.total - b.total,
+    render: (text) => {
+      numeral.locale(locale);
+      return (
+        <div>
+          {numeral(text).format('$0.00')}
+        </div>
+      );
+    },
   }];
 };
 
@@ -210,7 +219,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Shipped',
-  total: '$87.50',
+  total: 87.50,
 }, {
   key: '2',
   orderId: '1525884',
@@ -222,7 +231,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'UPS',
   status: 'Done',
-  total: '$34.75',
+  total: 34.75,
 }, {
   key: '3',
   orderId: '1326599',
@@ -234,7 +243,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'FedEx',
   status: 'Cancelled',
-  total: '$220.00',
+  total: 220.00,
 }, {
   key: '5',
   orderId: '2544152',
@@ -246,7 +255,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '6',
   orderId: '2544152',
@@ -258,7 +267,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '7',
   orderId: '2544152',
@@ -270,7 +279,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '8',
   orderId: '2544152',
@@ -282,7 +291,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '9',
   orderId: '2544152',
@@ -294,7 +303,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '10',
   orderId: '2544152',
@@ -306,7 +315,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '11',
   orderId: '2544152',
@@ -318,7 +327,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '12',
   orderId: '2544152',
@@ -330,7 +339,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '13',
   orderId: '2544152',
@@ -342,7 +351,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '14',
   orderId: '2544152',
@@ -354,7 +363,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '15',
   orderId: '2544152',
@@ -366,7 +375,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '16',
   orderId: '2544152',
@@ -378,7 +387,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '17',
   orderId: '2544152',
@@ -390,7 +399,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '18',
   orderId: '2544152',
@@ -402,7 +411,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '19',
   orderId: '2544152',
@@ -414,7 +423,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '20',
   orderId: '2544152',
@@ -426,7 +435,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '21',
   orderId: '2544152',
@@ -438,7 +447,7 @@ export const data = [{
   facility: 'Atlas Facility',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '22',
   orderId: '2544152',
@@ -450,7 +459,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }, {
   key: '23',
   orderId: '2544152',
@@ -462,7 +471,7 @@ export const data = [{
   facility: 'VFC Warehouse',
   shipMethod: 'USPS',
   status: 'Delayed',
-  total: '$120.12',
+  total: 120.12,
 }];
 
 export const views = (
