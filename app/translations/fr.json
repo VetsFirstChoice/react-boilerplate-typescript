@@ -6,7 +6,7 @@
   "app.OrderHistory.DVM_ID": "DVM ID",
   "app.OrderHistory.invoiceNumber": "Facture d Achat #",
   "app.OrderHistory.orderID": "Ordre ID",
-  "app.OrderHistory.shipOrderNumber": "Envoi de la Commande",
+  "app.OrderHistory.shipOrderNumber": "Envoi de la Commande #",
   "app.OrderHistory.SKU": "SKU",
   "app.OrderHistory.orderNumber": "Ordre #",
   "app.OrderHistory.toteNumber": "Fourre-Tout #",

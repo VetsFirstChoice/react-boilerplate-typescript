@@ -4,29 +4,29 @@ import React, { useState } from 'react';
 
 export function NoteDrawer() {
 
-  const [drawerVisable, setDrawerVisable] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   const menuDropdown = (
     <Menu>
-      <Menu.Item>
+      <Menu.Item key={1}>
         <a target="_blank" rel="noopener noreferrer" href="#">Contact</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={2}>
         <a target="_blank" rel="noopener noreferrer" href="#">Expedited Order</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={3}>
         <a target="_blank" rel="noopener noreferrer" href="#">Next Day</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={4}>
         <a target="_blank" rel="noopener noreferrer" href="#">Rush Order</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={5}>
         <a target="_blank" rel="noopener noreferrer" href="#">Saturday Delivery</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={6}>
         <a target="_blank" rel="noopener noreferrer" href="#">Second Day</a>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key={7}>
         <a target="_blank" rel="noopener noreferrer" href="#">Will-Call</a>
       </Menu.Item>
     </Menu>
@@ -53,8 +53,8 @@ export function NoteDrawer() {
           title="Order Notes"
           placement="right"
           closable={false}
-          onClose={() => setDrawerVisable(false)}
-          visible={drawerVisable}
+          onClose={() => setDrawerVisible(false)}
+          visible={drawerVisible}
         >
           <List
             size="small"
@@ -70,7 +70,7 @@ export function NoteDrawer() {
           type="primary"
           icon="bars"
           onClick={() => {
-            setDrawerVisable(true);
+            setDrawerVisible(true);
           }}>
           Notes
         </Button>
