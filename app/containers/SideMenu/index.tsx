@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Sider from 'antd/lib/layout/Sider';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 export default function SideMenu() {
 
@@ -54,7 +55,7 @@ export default function SideMenu() {
                     type="dashboard"
                     theme="twoTone"
                   />
-                  <FormattedMessage id="app.SideMenu.dashboard"/>
+                  <FormattedMessage {...messages.dashboard}/>
                 </span>
             </Link>
           </Menu.Item>
@@ -74,7 +75,7 @@ export default function SideMenu() {
                 theme="twoTone"
                 style={{ display: 'inline-flex' }}
               />
-              <FormattedMessage id="app.SideMenu.orders"/>
+              <FormattedMessage {...messages.orders}/>
             </Link>
           </Menu.Item>
           {/* <Menu.Item key="4">

@@ -22,6 +22,7 @@ export const enCurrencyLocale = {
     symbol: '$',
   },
 };
+
 export const frCurrencyLocale = {
   delimiters: {
     thousands: ' ',
@@ -50,7 +51,7 @@ export const zhCurrencyLocale = {
     billion: '十亿',
     trillion: '兆',
   },
-  ordinal: (value) => {
+  ordinal: () => {
     return '.';
   },
   currency: {

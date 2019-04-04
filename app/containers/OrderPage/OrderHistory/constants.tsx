@@ -4,23 +4,24 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import numeral from 'numeral';
+import messages from './messages';
 
 export const columns: any = (locale) => {
 
   return [{
-    title: <FormattedMessage id="app.OrderHistory.orderID"/>,
+    title: <FormattedMessage {...messages.orderID}/>,
     dataIndex: 'orderId',
     width: '100px',
     sorter: (a, b) => a.name.length - b.name.length,
     sortDirections: ['descend'],
   }, {
-    title: <FormattedMessage id="app.OrderHistory.orderNumber"/>,
+    title: <FormattedMessage {...messages.orderNumber}/>,
     dataIndex: 'orderNum',
     width: '100px',
     sorter: (a, b) => a.orderNum - b.orderNum,
     render: text => <Link to="orders/784776467">{text}</Link>,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.orderDate"/>,
+    title: <FormattedMessage {...messages.orderDate}/>,
     dataIndex: 'orderDate',
     width: '100px',
     sorter: (a, b) => a.orderDate - b.orderDate,
@@ -33,16 +34,16 @@ export const columns: any = (locale) => {
       );
     },
   }, {
-    title: <FormattedMessage id="app.OrderHistory.DVM_ID"/>,
+    title: <FormattedMessage {...messages.DVM_ID}/>,
     dataIndex: 'dvmId',
     width: '100px',
     sorter: (a, b) => a.dvmId - b.dvmId,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.client"/>,
+    title: <FormattedMessage {...messages.client}/>,
     dataIndex: 'client',
     width: '100px',
   }, {
-    title: <FormattedMessage id="app.OrderHistory.platform"/>,
+    title: <FormattedMessage {...messages.platform}/>,
     dataIndex: 'platform',
     width: '100px',
     filters: [
@@ -81,7 +82,7 @@ export const columns: any = (locale) => {
       }],
     onFilter: (value, record) => record.platform.indexOf(value) === 0,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.facility"/>,
+    title: <FormattedMessage {...messages.facility}/>,
     dataIndex: 'facility',
     width: '100px',
     filters: [
@@ -120,7 +121,7 @@ export const columns: any = (locale) => {
       }],
     onFilter: (value, record) => record.facility.indexOf(value) === 0,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.shipMethod"/>,
+    title: <FormattedMessage {...messages.shipMethod}/>,
     dataIndex: 'shipMethod',
     width: '100px',
     filters: [
@@ -153,7 +154,7 @@ export const columns: any = (locale) => {
       }],
     onFilter: (value, record) => record.shipMethod.indexOf(value) === 0,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.orderStatus"/>,
+    title: <FormattedMessage {...messages.orderStatus}/>,
     dataIndex: 'status',
     width: '150px',
     filters: [
@@ -193,7 +194,7 @@ export const columns: any = (locale) => {
     onFilter: (value, record) => record.status.indexOf(value) === 0,
     render: text => <Badge status="processing" text={text}/>,
   }, {
-    title: <FormattedMessage id="app.OrderHistory.orderTotal"/>,
+    title: <FormattedMessage {...messages.orderTotal}/>,
     dataIndex: 'total',
     width: '100px',
     sorter: (a, b) => a.total - b.total,

@@ -21,12 +21,15 @@
   "app.OrderHistory.shipMethod": "船舶方法",
   "app.OrderHistory.orderStatus": "订单状态",
   "app.OrderHistory.orderTotal": "合计订单",
-  "app.HomePage": "Language: ZH",
+  "app.containers.HomePage.header": "This is the home page!  Language: ZH",
   "app.OrderDetails.rushOrder": "紧急订单",
   "app.OrderDetails.platformType": "平台类型：首选",
   "app.OrderDetails.petOwner": "订单来源：宠物主人",
   "app.OrderDetails.orderMethod": "订购方法：网络",
   "app.OrderDetails.submittedBy": "提交者：客户",
   "app.OrderDetails.type": "类型：患者特异性",
-  "app.OrderDetails.ClientInformation.name": "名称"
+  "app.OrderDetails.ClientInformation.name": "名称",
+  "app.LanguageSelect.english": "英语",
+  "app.LanguageSelect.french": "法国",
+  "app.LanguageSelect.chinese": "中文"
 }

@@ -14,8 +14,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import SideMenu from 'containers/SideMenu';
-import Header from 'containers/TopMenu';
+import SideMenu from 'containers/SideMenu/Loadable';
+import Header from 'containers/TopMenu/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import OrderPage from 'containers/OrderPage/Loadable';
 import OrderDetailPage from 'containers/OrderPage/OrderDetailPage/Loadable';

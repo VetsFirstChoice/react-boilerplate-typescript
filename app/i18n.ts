@@ -10,7 +10,7 @@
 import detectBrowserLanguage from 'detect-browser-language';
 import moment from 'moment';
 import numeral from 'numeral';
-import { enCurrencyLocale, frCurrencyLocale, zhCurrencyLocale } from './translations/currency';
+import { frCurrencyLocale, zhCurrencyLocale } from './translations/currency';
 import { frDateFormat, zhDateFormat } from './translations/datetime';
 
 const addLocaleData = require('react-intl').addLocaleData;
@@ -35,23 +35,23 @@ addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
 addLocaleData(zhLocaleData);
 
-// Load Moment Date and Time Locale Data
+// Load Moment Date and Time Locale Data (English is pre-loaded)
 moment.updateLocale('fr', frDateFormat);
 moment.updateLocale('zh', zhDateFormat);
 
-// Load Numeral Currency Locale Data
-numeral.register('locale', 'en-US', enCurrencyLocale);
+// Load Numeral Currency Locale Data (English is pre-loaded)
 numeral.register('locale', 'fr', frCurrencyLocale);
 numeral.register('locale', 'zh', zhCurrencyLocale);
 
-
+// Grab the current locale from the browser
 function getDefaultBrowserLocale() {
+  const currentLanguage = detectBrowserLanguage();
   const browserLocaleMap = {
     'en-US': 'en',
     'fr-FR': 'fr',
     'zh-ZH': 'zh',
   };
-  return browserLocaleMap[detectBrowserLanguage()];
+  return browserLocaleMap[currentLanguage];
 }
 
 export const formatTranslationMessages = (locale, messages) => {

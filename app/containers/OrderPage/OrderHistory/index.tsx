@@ -14,6 +14,7 @@ import { FormattedMessage } from 'react-intl';
 import { createSelector } from 'reselect';
 import { makeSelectLocale } from '../../LanguageProvider/selectors';
 import { connect } from 'react-redux';
+import messages from './messages';
 
 const mapStateToProps = createSelector(makeSelectLocale(), locale => ({
   locale: locale,
@@ -37,34 +38,34 @@ export const Orders = ({ locale }) => {
         <InputGroup compact>
           <Select defaultValue="Option1" style={{ width: 150 }}>
             <Option value="Option1">
-              <FormattedMessage id="app.OrderHistory.orderNumber"/>
+              <FormattedMessage {...messages.orderNumber}/>
             </Option>
             <Option value="Option2">
-              <FormattedMessage id="app.OrderHistory.clientName"/>
+              <FormattedMessage {...messages.clientName}/>
             </Option>
             <Option value="Option3">
-              <FormattedMessage id="app.OrderHistory.clientEmail"/>
+              <FormattedMessage {...messages.clientEmail}/>
             </Option>
             <Option value="Option4">
-              <FormattedMessage id="app.OrderHistory.DVM_ID"/>
+              <FormattedMessage {...messages.DVM_ID}/>
             </Option>
             <Option value="Option5">
-              <FormattedMessage id="app.OrderHistory.invoiceNumber"/>
+              <FormattedMessage {...messages.invoiceNumber}/>
             </Option>
             <Option value="Option6">
-              <FormattedMessage id="app.OrderHistory.orderID"/>
+              <FormattedMessage {...messages.orderID}/>
             </Option>
             <Option value="Option7">
-              <FormattedMessage id="app.OrderHistory.shipOrderNumber"/>
+              <FormattedMessage {...messages.shipOrderNumber}/>
             </Option>
             <Option value="Option8">
-              <FormattedMessage id="app.OrderHistory.SKU"/>
+              <FormattedMessage {...messages.SKU}/>
             </Option>
             <Option value="Option9">
-              <FormattedMessage id="app.OrderHistory.toteNumber"/>
+              <FormattedMessage {...messages.toteNumber}/>
             </Option>
             <Option value="Option10">
-              <FormattedMessage id="app.OrderHistory.trackingNumber"/>
+              <FormattedMessage {...messages.trackingNumber}/>
             </Option>
           </Select>
           <Input style={{ width: '50%' }}/>
@@ -88,21 +89,21 @@ export const Orders = ({ locale }) => {
         <TabPane tab={(
           <span>
             <Icon type="search"/>
-            <FormattedMessage id="app.OrderHistory.search"/>
+            <FormattedMessage {...messages.search}/>
           </span>)} key="1">
           {search}
         </TabPane>
         <TabPane tab={(
           <span>
             <Icon type="bars"/>
-            <FormattedMessage id="app.OrderHistory.queues"/>
+            <FormattedMessage {...messages.queues}/>
           </span>)} key="2">
           {queues}
         </TabPane>
         <TabPane tab={(
           <span>
             <Icon type="profile"/>
-            <FormattedMessage id="app.OrderHistory.views"/>
+            <FormattedMessage {...messages.views}/>
           </span>)} key="3">
           {views}
         </TabPane>
