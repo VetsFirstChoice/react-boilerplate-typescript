@@ -38,10 +38,8 @@ addLocaleData(frLocaleData);
 addLocaleData(zhLocaleData);
 
 // Load Moment Date and Time Locale Data (English is pre-loaded)
-console.log(moment.locales());
 moment.updateLocale('fr', frDateFormat);
 moment.updateLocale('zh', zhDateFormat);
-console.log(moment.locales());
 
 // Load Numeral Currency Locale Data (English is pre-loaded)
 numeral.register('locale', 'fr', frCurrencyLocale);
