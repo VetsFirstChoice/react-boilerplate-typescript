@@ -28,8 +28,5 @@
   "app.OrderDetails.orderMethod": "Order Method: Web",
   "app.OrderDetails.submittedBy": "Submitted By: Client",
   "app.OrderDetails.type": "Type: Patient Specific",
-  "app.OrderDetails.ClientInformation.name": "Name",
-  "app.LanguageSelect.english": "English",
-  "app.LanguageSelect.french": "French",
-  "app.LanguageSelect.chinese": "Chinese"
+  "app.OrderDetails.ClientInformation.name": "Name"
 }

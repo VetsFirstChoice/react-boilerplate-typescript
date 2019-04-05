@@ -12,6 +12,8 @@ import moment from 'moment';
 import numeral from 'numeral';
 import { frCurrencyLocale, zhCurrencyLocale } from './translations/currency';
 import { frDateFormat, zhDateFormat } from './translations/datetime';
+// import * as frfr from 'moment/locale/fr';
+// import * as zhzh from 'moment/locale/zh-cn';
 
 const addLocaleData = require('react-intl').addLocaleData;
 const enLocaleData = require('react-intl/locale-data/en');
@@ -36,8 +38,10 @@ addLocaleData(frLocaleData);
 addLocaleData(zhLocaleData);
 
 // Load Moment Date and Time Locale Data (English is pre-loaded)
+console.log(moment.locales());
 moment.updateLocale('fr', frDateFormat);
 moment.updateLocale('zh', zhDateFormat);
+console.log(moment.locales());
 
 // Load Numeral Currency Locale Data (English is pre-loaded)
 numeral.register('locale', 'fr', frCurrencyLocale);

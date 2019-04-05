@@ -14,8 +14,6 @@ import { connect } from 'react-redux';
 import { CHANGE_LOCALE } from '../../LanguageProvider/constants';
 import { createSelector } from 'reselect';
 import { makeSelectLocale } from '../../LanguageProvider/selectors';
-import messages from './messages';
-import { FormattedMessage } from 'react-intl';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -37,9 +35,9 @@ export function LanguageSelect({ changeLocale, locale }) {
               float: 'right',
               marginTop: 15,
             }}>
-      <Option value={'en'}><FormattedMessage {...messages.english}/></Option>
-      <Option value={'fr'}><FormattedMessage {...messages.french}/></Option>
-      <Option value={'zh'}><FormattedMessage {...messages.chinese}/></Option>
+      <Option value={'en'}>English</Option>
+      <Option value={'fr'}>French</Option>
+      <Option value={'zh'}>Chinese</Option>
     </Select>
   );
 }

@@ -199,6 +199,8 @@ export const columns: any = (locale) => {
     width: '100px',
     sorter: (a, b) => a.total - b.total,
     render: (text) => {
+      // Mock the backend currency type.
+      locale = 'zh';
       numeral.locale(locale);
       return (
         <div>

@@ -28,8 +28,5 @@
   "app.OrderDetails.orderMethod": "订购方法：网络",
   "app.OrderDetails.submittedBy": "提交者：客户",
   "app.OrderDetails.type": "类型：患者特异性",
-  "app.OrderDetails.ClientInformation.name": "名称",
-  "app.LanguageSelect.english": "英语",
-  "app.LanguageSelect.french": "法国",
-  "app.LanguageSelect.chinese": "中文"
+  "app.OrderDetails.ClientInformation.name": "名称"
 }

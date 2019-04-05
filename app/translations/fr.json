@@ -28,8 +28,5 @@
   "app.OrderDetails.orderMethod": "Procédure d'ordre",
   "app.OrderDetails.submittedBy": "Soumis Par: Client",
   "app.OrderDetails.type": "Type: Spécifique au Patient",
-  "app.OrderDetails.ClientInformation.name": "Nom",
-  "app.LanguageSelect.english": "Anglais",
-  "app.LanguageSelect.french": "Français",
-  "app.LanguageSelect.chinese": "Chinois"
+  "app.OrderDetails.ClientInformation.name": "Nom"
 }
