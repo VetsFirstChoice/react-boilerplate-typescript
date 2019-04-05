@@ -16,6 +16,7 @@ import * as React from 'react';
 import {
   Step,
 } from './constants';
+import { FormattedMessage } from 'react-intl';
 
 export default function OrderDetailHeader() {
 
@@ -23,7 +24,10 @@ export default function OrderDetailHeader() {
     <PageHeader
       onBack={() => console.log('back!')}
       title="Order # 1000 0000 1696 80"
-      subTitle={<Tag color="volcano">Rush Order</Tag>}
+      subTitle={(
+        <Tag color="volcano">
+          <FormattedMessage id="app.OrderDetails.rushOrder"/>
+        </Tag>)}
       extra={[<NoteDrawer/>]}
       style={{ margin: '0px', padding: '16px', backgroundColor: '#f0f2f5' }}
     >
@@ -34,31 +38,31 @@ export default function OrderDetailHeader() {
           </Row>
           <Row>
             <h4>
-              Platform Type: Vets First Choice
+              <FormattedMessage id="app.OrderDetails.platformType"/>
             </h4>
           </Row>
         </Col>
         <Col span={6}>
           <Row>
             <h4>
-              Order Origin: Pet Owner
+              <FormattedMessage id="app.OrderDetails.petOwner"/>
             </h4>
           </Row>
           <Row>
             <h4>
-              Order Method: Web
+              <FormattedMessage id="app.OrderDetails.orderMethod"/>
             </h4>
           </Row>
         </Col>
         <Col span={6}>
           <Row>
             <h4>
-              Submitted By: Client
+              <FormattedMessage id="app.OrderDetails.submittedBy"/>
             </h4>
           </Row>
           <Row>
             <h4>
-              Type: Patient Specific
+              <FormattedMessage id="app.OrderDetails.type"/>
             </h4>
           </Row>
         </Col>

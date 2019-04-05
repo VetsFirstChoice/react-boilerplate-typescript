@@ -7,45 +7,40 @@
  *
  */
 
-// import GlobalStyle from '../../global-styles';
-
 // Remove and use Babel
 import 'antd/dist/antd.css';
 
-import * as React from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import Header from 'containers/TopMenu';
-import SideMenu from 'containers/SideMenu';
-
+import SideMenu from 'containers/SideMenu/Loadable';
+import Header from 'containers/TopMenu/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import OrderPage from 'containers/OrderPage/Loadable';
 import OrderDetailPage from 'containers/OrderPage/OrderDetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+
+
 export default function App() {
 
   const { Content, Footer } = Layout;
 
   return (
-    <div>
+    <Layout>
+      <SideMenu/>
       <Layout>
-        <SideMenu />
-        <Layout>
-          <Header />
-          <Content style={{ margin: '10px'}}>
-          <div style={{ padding: '24px' }}>
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/orders" component={OrderPage} />
-                <Route path="/orders/:pathParam?" component={OrderDetailPage} />
-                <Route component={NotFoundPage} />
-              </Switch>
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>©2019 Covetrus</Footer>
-        </Layout>
+        <Header/>
+        <Content style={{ margin: '6px' }}>
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/orders" component={OrderPage}/>
+            <Route path="/orders/:pathParam?" component={OrderDetailPage}/>
+            <Route component={NotFoundPage}/>
+          </Switch>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>©2019 Covetrus</Footer>
       </Layout>
-    </div>
+    </Layout>
   );
 }

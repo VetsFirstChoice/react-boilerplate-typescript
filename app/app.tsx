@@ -9,7 +9,7 @@
 import '@babel/polyfill';
 
 // Import all the third party stuff
-import * as React from 'react';
+import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -20,11 +20,11 @@ import history from 'utils/history';
 import App from 'containers/App';
 
 // Import Language Provider
-import LanguageProvider from 'containers/LanguageProvider';
+import LanguageProvider from './containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
+import 'file-loader?name=.htaccess!./.htaccess';
 
 import configureStore from './configureStore';
 
@@ -41,7 +41,7 @@ const render = (messages, Component = App) => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <Component />
+          <Component/>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
@@ -53,7 +53,6 @@ declare const module: any;
 if (module.hot) {
   module.hot.accept(['./i18n', './containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    // tslint:disable-next-line:max-line-length
     const App = require('./containers/App').default; // https://github.com/webpack/webpack-dev-server/issues/100
     render(translationMessages, App);
   });
@@ -66,9 +65,10 @@ if (!(window as any).Intl) {
     .then(() =>
       Promise.all([
         import('intl/locale-data/jsonp/en.js'),
-        import('intl/locale-data/jsonp/de.js'),
+        import('intl/locale-data/jsonp/fr.js'),
+        import('intl/locale-data/jsonp/zh.js'),
       ]),
-    ) // eslint-disable-line prettier/prettier
+    )
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;

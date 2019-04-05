@@ -7,21 +7,54 @@
  *   script `extract-intl`, and must use CommonJS module syntax
  *   You CANNOT use import/export in this file.
  */
+import detectBrowserLanguage from 'detect-browser-language';
+import moment from 'moment';
+import numeral from 'numeral';
+import { frCurrencyLocale, zhCurrencyLocale } from './translations/currency';
+import { frDateFormat, zhDateFormat } from './translations/datetime';
+// import * as frfr from 'moment/locale/fr';
+// import * as zhzh from 'moment/locale/zh-cn';
+
 const addLocaleData = require('react-intl').addLocaleData;
 const enLocaleData = require('react-intl/locale-data/en');
-const deLocaleData = require('react-intl/locale-data/de');
+const frLocaleData = require('react-intl/locale-data/fr');
+const zhLocaleData = require('react-intl/locale-data/zh');
 
 const enTranslationMessages = require('./translations/en.json');
+const frTranslationMessages = require('./translations/fr.json');
+const zhTranslationMessages = require('./translations/zh.json');
 
-addLocaleData(enLocaleData);
-addLocaleData(deLocaleData);
-
-export const DEFAULT_LOCALE = 'en';
-
-// prettier-ignore
+// App Locale Global Identifiers
+export const DEFAULT_LOCALE = getDefaultBrowserLocale();
 export const appLocales = [
   'en',
+  'fr',
+  'zh',
 ];
+
+// Load React-Intl Locale Data
+addLocaleData(enLocaleData);
+addLocaleData(frLocaleData);
+addLocaleData(zhLocaleData);
+
+// Load Moment Date and Time Locale Data (English is pre-loaded)
+moment.updateLocale('fr', frDateFormat);
+moment.updateLocale('zh', zhDateFormat);
+
+// Load Numeral Currency Locale Data (English is pre-loaded)
+numeral.register('locale', 'fr', frCurrencyLocale);
+numeral.register('locale', 'zh', zhCurrencyLocale);
+
+// Grab the current locale from the browser
+function getDefaultBrowserLocale() {
+  const currentLanguage = detectBrowserLanguage();
+  const browserLocaleMap = {
+    'en-US': 'en',
+    'fr-FR': 'fr',
+    'zh-ZH': 'zh',
+  };
+  return browserLocaleMap[currentLanguage];
+}
 
 export const formatTranslationMessages = (locale, messages) => {
   const defaultFormattedMessages =
@@ -33,11 +66,13 @@ export const formatTranslationMessages = (locale, messages) => {
       !messages[key] && locale !== DEFAULT_LOCALE
         ? defaultFormattedMessages[key]
         : messages[key];
-    return {...formattedMessages,  [key]: formattedMessage};
+    return { ...formattedMessages, [key]: formattedMessage };
   };
   return Object.keys(messages).reduce(flattenFormattedMessages, {});
 };
 
 export const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
+  fr: formatTranslationMessages('fr', frTranslationMessages),
+  zh: formatTranslationMessages('zh', zhTranslationMessages),
 };

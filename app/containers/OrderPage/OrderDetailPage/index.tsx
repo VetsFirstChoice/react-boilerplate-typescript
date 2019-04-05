@@ -10,12 +10,12 @@ import { Col, Layout, Row } from 'antd';
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
-import OrderDetailHeader from './OrderDetailHeader';
-import PracticeInformation from './PracticeInformation';
-import ClientInformation from './ClientInformation';
-import ShippingInformation from './ShippingInformation';
-import PaymentInformation from './PaymentInformation';
-import ItemInformation from './ItemInformation';
+import OrderDetailHeader from './OrderDetailHeader/Loadable';
+import PracticeInformation from './PracticeInformation/Loadable';
+import ClientInformation from './ClientInformation/Loadable';
+import ShippingInformation from './ShippingInformation/Loadable';
+import PaymentInformation from './PaymentInformation/Loadable';
+import ItemInformation from './ItemInformation/Loadable';
 
 export default function OrderDetail() {
 

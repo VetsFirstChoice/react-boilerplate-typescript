@@ -14,8 +14,9 @@ const get = require('lodash/get');
 const animateProgress = require('./helpers/progress');
 const addCheckmark = require('./helpers/checkmark');
 
-const { appLocales, DEFAULT_LOCALE } = require('../../app/i18n');
-
+// const { appLocales, DEFAULT_LOCALE } = require('app/i18n');
+export const DEFAULT_LOCALE = 'en';
+export const appLocales = ['en', 'fr', 'zh'];
 const babel = require('../../babel.config.js');
 const { presets } = babel;
 let plugins = babel.plugins || [];

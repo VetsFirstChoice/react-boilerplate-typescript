@@ -12,6 +12,8 @@ import { Menu, Icon, Affix } from 'antd';
 import { Link } from 'react-router-dom';
 import Sider from 'antd/lib/layout/Sider';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 export default function SideMenu() {
 
@@ -43,7 +45,9 @@ export default function SideMenu() {
           />
         </Logo>
         {/* Set default key to store value */}
-        <Menu mode="inline" defaultSelectedKeys={['1']}>
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
             <Link to="/">
                 <span>
@@ -51,7 +55,7 @@ export default function SideMenu() {
                     type="dashboard"
                     theme="twoTone"
                   />
-                  Dashboard
+                  <FormattedMessage {...messages.dashboard}/>
                 </span>
             </Link>
           </Menu.Item>
@@ -71,7 +75,7 @@ export default function SideMenu() {
                 theme="twoTone"
                 style={{ display: 'inline-flex' }}
               />
-              Orders
+              <FormattedMessage {...messages.orders}/>
             </Link>
           </Menu.Item>
           {/* <Menu.Item key="4">

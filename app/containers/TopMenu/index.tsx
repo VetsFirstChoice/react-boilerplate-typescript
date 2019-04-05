@@ -10,15 +10,18 @@ import 'antd/dist/antd.css';
 
 import * as React from 'react';
 import { Layout, Affix } from 'antd';
+import LanguageSelect from './LanguageSelect/Loadable';
 
-/* eslint-disable react/prefer-stateless-function */
+
 export default function TopMenu() {
-    const { Header } = Layout;
+  const { Header } = Layout;
 
-    return (
-      <Affix>
-        <Header style={{ background: '#fff' }}/>
-      </Affix>
-    );
+  return (
+    <Affix>
+      <Header style={{ background: '#fff' }}>
+        <LanguageSelect/>
+      </Header>
+    </Affix>
+  );
 }
 
