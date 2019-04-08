@@ -8,14 +8,15 @@
 // remove, use babel for antD css
 import 'antd/dist/antd.css';
 import * as React from 'react';
-import { Menu, Icon, Affix } from 'antd';
+import { Menu, Icon, Affix, Layout } from 'antd';
 import { Link } from 'react-router-dom';
-import Sider from 'antd/lib/layout/Sider';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 export default function SideMenu() {
+
+  const { Sider } = Layout;
 
   const Logo = styled.div`
       height: 32px;
