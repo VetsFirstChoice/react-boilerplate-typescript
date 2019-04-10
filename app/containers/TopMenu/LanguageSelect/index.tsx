@@ -33,7 +33,6 @@ export function LanguageSelect({ changeLocale, locale }) {
             onChange={changeLocale}
             style={{
               float: 'right',
-              marginTop: 15,
             }}>
       <Option value={'en'}>English</Option>
       <Option value={'fr'}>French</Option>
