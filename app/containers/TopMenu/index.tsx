@@ -9,8 +9,9 @@
 import 'antd/dist/antd.css';
 
 import * as React from 'react';
-import { Layout, Affix } from 'antd';
+import { Layout, Affix, Row, Col } from 'antd';
 import LanguageSelect from './LanguageSelect/Loadable';
+import Breadcrumbs from '../Breadcrumbs/Loadable';
 
 
 export default function TopMenu() {
@@ -19,7 +20,14 @@ export default function TopMenu() {
   return (
     <Affix>
       <Header style={{ background: '#fff' }}>
-        <LanguageSelect/>
+        <Row align={'middle'}>
+          <Col style={{ marginTop: 18 }} span={12}>
+            <Breadcrumbs/>
+          </Col>
+          <Col style={{ marginTop: 12 }} span={12}>
+            <LanguageSelect/>
+          </Col>
+        </Row>
       </Header>
     </Affix>
   );
