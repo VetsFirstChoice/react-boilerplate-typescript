@@ -1,10 +1,23 @@
+import React, { useState, useReducer, useRef } from 'react';
 import { Button, Drawer, Dropdown, Menu, Icon, List } from 'antd';
-import 'antd/dist/antd.css';
-import React, { useState } from 'react';
+import { notesReducer, initialState } from './reducer';
+
 
 export function NoteDrawer() {
 
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const [notes, dispatch] = useReducer(notesReducer, initialState);
+  const inputRef: any = useRef();
+
+  function addNote(event) {
+    event.preventDefault();
+    dispatch({
+      type: 'ADD_NOTE',
+      note: inputRef.current.value,
+    });
+    inputRef.current.value = '';
+  }
+
 
   const menuDropdown = (
     <Menu>
@@ -34,14 +47,6 @@ export function NoteDrawer() {
 
   const ButtonGroup = Button.Group;
 
-  const notes = [
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Los Angeles battles huge wildfires.',
-  ];
-
   const ui = (
     <div>
       <ButtonGroup>
@@ -61,9 +66,14 @@ export function NoteDrawer() {
             header={<div>Header</div>}
             footer={<div>Footer</div>}
             dataSource={notes}
-            renderItem={item => (<List.Item>{item}</List.Item>)}
+            renderItem={item => {
+              return (<List.Item>{item['note']}</List.Item>); }
+            }
           />
-          <Button type="primary" block>Add Note</Button>
+          <form onSubmit={addNote}>
+            <input ref={inputRef} placeholder="Add Note..." />
+            <Button type="primary" htmlType="submit" block>Add Note</Button>
+          </form>
 
         </Drawer>
         <Button
