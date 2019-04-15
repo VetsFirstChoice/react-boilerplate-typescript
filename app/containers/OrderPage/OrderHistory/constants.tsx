@@ -200,8 +200,7 @@ export const columns: any = (locale) => {
     sorter: (a, b) => a.total - b.total,
     render: (text) => {
       // Mock the backend currency type.
-      locale = 'zh';
-      numeral.locale(locale);
+      numeral.locale('zh');
       return (
         <div>
           {numeral(text).format('$0.00')}
