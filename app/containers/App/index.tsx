@@ -15,7 +15,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import SideMenu from 'containers/SideMenu/Loadable';
-import Header from 'containers/TopMenu/Loadable';
+import TopMenu from 'containers/TopMenu/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import OrderPage from 'containers/OrderPage/Loadable';
 import OrderDetailPage from 'containers/OrderPage/OrderDetailPage/Loadable';
@@ -30,7 +30,7 @@ export default function App() {
     <Layout>
       <SideMenu/>
       <Layout>
-        <Header/>
+        <TopMenu/>
         <Content style={{ margin: '6px' }}>
           <Switch>
             <Route exact path="/" component={HomePage}/>
