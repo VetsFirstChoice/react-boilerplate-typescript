@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
   locale: state.language.locale,
 });
 
-export const OrderHistory = ({ locale }) => {
+export const OrderSearch = ({ locale }) => {
 
   const [data, setData] = useState([]);
   const [searchOrder, setSearchOrder] = useState('');
@@ -141,4 +141,4 @@ export const OrderHistory = ({ locale }) => {
 
 export default connect(
   mapStateToProps,
-)(OrderHistory);
+)(OrderSearch);
