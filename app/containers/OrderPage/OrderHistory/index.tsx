@@ -8,19 +8,44 @@
 // remove, use babel for antD css
 import 'antd/dist/antd.css';
 import { Table, Button, Row, Select, Input, DatePicker, Col, Tabs, Icon } from 'antd';
-import * as React from 'react';
-import { data, columns, views, queues } from './constants';
+import React, { useEffect, useState } from 'react';
+import { columns, views, queues } from './constants';
 import { FormattedMessage } from 'react-intl';
-import { createSelector } from 'reselect';
-import { makeSelectLocale } from '../../LanguageProvider/selectors';
 import { connect } from 'react-redux';
 import messages from './messages';
+import axios from 'axios';
 
-const mapStateToProps = createSelector(makeSelectLocale(), locale => ({
-  locale: locale,
-}));
+const mapStateToProps = state => ({
+  locale: state.language.locale,
+});
 
-export const Orders = ({ locale }) => {
+export const OrderHistory = ({ locale }) => {
+
+  const [data, setData] = useState([]);
+  const [searchOrder, setSearchOrder] = useState('');
+  const [searchOrderInput, setSearchOrderInput] = useState('');
+
+  // Get the data when the Orders container mounts.
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'https://5cb4af30bbf7b50014cabc3a.mockapi.io/api/orders',
+      );
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
+
+  // Get the data with input parameter when the search button is clicked.
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `https://5cb4af30bbf7b50014cabc3a.mockapi.io/api/orders/${searchOrder}`,
+      );
+      setData(result.data);
+    };
+    fetchData();
+  }, [searchOrder]);
 
   const InputGroup = Input.Group;
   const Option = Select.Option;
@@ -68,8 +93,9 @@ export const Orders = ({ locale }) => {
               <FormattedMessage {...messages.trackingNumber}/>
             </Option>
           </Select>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} onChange={event => setSearchOrderInput(event.target.value)}/>
           <Button icon="search" shape="circle-outline" onClick={() => {
+            setSearchOrder(searchOrderInput);
           }}/>
         </InputGroup>
       </Col>
@@ -115,4 +141,4 @@ export const Orders = ({ locale }) => {
 
 export default connect(
   mapStateToProps,
-)(Orders);
+)(OrderHistory);
